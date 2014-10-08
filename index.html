@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <title>bootstrap select mobile</title>
+    </head>
+    <body>
+
+    <div class="container">
+    	<div class="row">
+            <div class="col-lg-12">
+                <h1>Basic usage</h1>
+                <p></p>
+
+                <button class="btn btn-primary" id="triggerBy">example id="triggerBy"</button>
+                <select id="selectElem" style="" >
+                    <option value="1">idea</option>
+                    <option value="2">vodafone</option>
+                    <option value="3">aircel</option>
+                    <option value="4">tata docomo</option>
+                    <option value="5">that</option>
+                </select>
+
+                <code>$('asdasd')</code>
+            </div>
+    		<div class="col-lg-12">
+    			<h1>2nd</h1>
+    			<p></p>
+
+    			<button class="btn btn-primary" id="asdasd">example id="triggerBy"</button>
+    			<select id="dasdas" style="" multiple>
+    				<option value="1">idea</option>
+    				<option value="2">vodafone</option>
+    				<option value="3">aircel</option>
+    				<option value="4">tata docomo</option>
+    				<option value="5">that</option>
+    			</select>
+
+    			<code>$('asdasd')</code>
+    		</div>
+    	</div>
+    </div>
+        <script type="text/javascript" src="js/libs/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap-mobile-select.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+
+            bootSelect.init({
+                selectControl: '#selectElem',
+                on: '#triggerBy',
+                title: 'Order by'
+            });
+            
+            bootSelect.init({
+                selectControl: '#dasdas',
+                on: '#asdasd',
+                title: 'this by'
+            });
+        });
+        </script>
+    </body>
+</html>
