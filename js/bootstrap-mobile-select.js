@@ -1,7 +1,12 @@
-// bootselect for mobile devices.
-// v1.1	
-// www.craftpip.com
-		
+// |-------------------------------------------------|
+// |    bootstrap select for mobile devices. v1.2    |
+// |-------------------------------------------------|
+// |      made specially for use with cordova.       |
+// |-------------------------------------------------|
+// |    &copy; boniface pereira. www.craftpip.com    |
+// |-------------------------------------------------|
+
+
 var bootSelect = {
 	settings: {
 		template: 'js/bootstrap-mobile-template.html'
@@ -40,18 +45,12 @@ var bootSelect = {
 
 		$.get(bootSelect.settings.template, function(d){
 
-			$('body').prepend('<div class="bootSelect" style="display:none" data-obj="'+object.on.substr(1)+'"></div>');
-
+			$('body').prepend('<div class="bootSelect" style="display:" data-obj="'+object.on.substr(1)+'"></div>');
 			$bs = $('.bootSelect[data-obj="'+object.on.substr(1)+'"]');
-
 			$bs.html(d);
-
 			$bs.find('.bootSelect-title').html(object.title || 'select one');
-
-			$bs.find('.list-container').css('height', $(window).height()-140+'px');
-
+			$bs.find('.list-container').css('height', $(window).height()-120+'px');
 			$bs.find('.list-container').attr('data-multiple', object.isMultiple);
-
 			var obj = bootSelect[object.on];
 			
 			$.each(obj.array, function(i,a){
@@ -64,37 +63,44 @@ var bootSelect = {
 	eventsLoaded: false,
 
 	events:function(object){
-		$(document).on('click', object.on, function(e){
 
+		$(document).on('click', object.on, function(e){
 			$('.bootSelect[data-obj="'+object.on.substr(1)+'"]').show();
 			bootSelect.syncR(object.on);
 
 		});
-	},
 
-	displayContainer:function(object){
-		// console.log(bootSelect['#'+id]);
-		// console.log(object);
 	},
 
 	baseEvents: function(){
+
 		if(this.eventsLoaded) return false;
 
 		$(window).resize(function(){
-			$('.bootSelect .list-container').css('height', $(window).height()-140+'px');
+			$('.bootSelect .list-container').css('height', $(window).height()-120+'px');
 		});
 
-		$(document).on('click', '.bootSelect .bootSelect-btncancel', function(){
+		$(document).on('click', '.bootSelect .bootSelect-btncancel', function(e){
 			$(this).parents('.bootSelect').hide();
+			return false;
 		});
 
 		$(document).on('click', '.bootSelect .bootSelect-btnsave', function(){
 			var a = $(this).parents('.bootSelect');
 			bootSelect.sync(a) ? $(this).parents('.bootSelect').hide() : '';
+			return false;
+		});
+
+		$(document).on('click', '.bootSelect .bootSelect-btnclear', function(){
+			var a = $(this).parents('.bootSelect');
+			a.find('.check').removeClass('check');
+			a.find('.bootSelect-btnsave').trigger('click');
+			return false;
 		});
 
 		$(document).on('click', '.bootSelect .list-container a.bs-control', function(e){
 			bootSelect.clickCheck(e);
+			return false;
 		});
 
 		this.eventsLoaded = true;
