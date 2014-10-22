@@ -45,12 +45,12 @@
   border: solid 1px #ddd;
   background-image: url('../img/tick.png');
   background-repeat: no-repeat;
-  background-position: -20px 0px;
+  background-position: 21px 0px;
   -webkit-transition: all .2s;
   transition: all .2s;
 }
 .bootSelect .list-container[data-multiple="true"] a.check:before {
-  background-position: 0px 0px;
+  background-position: 1px 0px;
 }
 .bootSelect .list-container[data-multiple="false"] a.check {
   background-color: #eee;

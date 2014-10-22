@@ -1,3 +1,4 @@
+
 // |-------------------------------------------------|
 // |    bootstrap select for mobile devices. v1.2    |
 // |-------------------------------------------------|
@@ -5,7 +6,6 @@
 // |-------------------------------------------------|
 // |    &copy; boniface pereira. www.craftpip.com    |
 // |-------------------------------------------------|
-
 
 var bootSelect = {
 	settings: {
@@ -32,7 +32,7 @@ var bootSelect = {
 
 		object.isMultiple = $selectContorl.attr('multiple') ? true : false;
 
-		window.a = $selectContorl;
+		window.a = $selectContorl; //debug
 
 		this[object.on] = {
 			array: array,
@@ -45,7 +45,7 @@ var bootSelect = {
 
 		$.get(bootSelect.settings.template, function(d){
 
-			$('body').prepend('<div class="bootSelect" style="display:" data-obj="'+object.on.substr(1)+'"></div>');
+			$('body').prepend('<div class="bootSelect" style="display:none" data-obj="'+object.on.substr(1)+'"></div>');
 			$bs = $('.bootSelect[data-obj="'+object.on.substr(1)+'"]');
 			$bs.html(d);
 			$bs.find('.bootSelect-title').html(object.title || 'select one');
@@ -60,18 +60,24 @@ var bootSelect = {
 		});
 	},
 
-	eventsLoaded: false,
+	eventsLoaded: false, //base events loaded.
 
 	events:function(object){
 
 		$(document).on('click', object.on, function(e){
+			$('body').css({
+				overflow: 'hidden'
+			});
 			$('.bootSelect[data-obj="'+object.on.substr(1)+'"]').show();
 			bootSelect.syncR(object.on);
-
 		});
 
 	},
-
+	removeOverflow: function(){
+		$('body').css({
+			overflow: 'auto'
+		})
+	},
 	baseEvents: function(){
 
 		if(this.eventsLoaded) return false;
@@ -82,12 +88,14 @@ var bootSelect = {
 
 		$(document).on('click', '.bootSelect .bootSelect-btncancel', function(e){
 			$(this).parents('.bootSelect').hide();
+			bootSelect.removeOverflow();
 			return false;
 		});
 
 		$(document).on('click', '.bootSelect .bootSelect-btnsave', function(){
 			var a = $(this).parents('.bootSelect');
 			bootSelect.sync(a) ? $(this).parents('.bootSelect').hide() : '';
+			bootSelect.removeOverflow();
 			return false;
 		});
 
@@ -95,6 +103,7 @@ var bootSelect = {
 			var a = $(this).parents('.bootSelect');
 			a.find('.check').removeClass('check');
 			a.find('.bootSelect-btnsave').trigger('click');
+			bootSelect.removeOverflow();
 			return false;
 		});
 
@@ -118,7 +127,7 @@ var bootSelect = {
 			$this.addClass('check');
 		}
 	},
-
+	
 	sync: function(a){
 		var list = a.find('.list-container .check');
 		var res = [];
