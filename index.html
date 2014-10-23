@@ -1,132 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/bootstrap-mobile-select.css" />
-        <title>bootstrap select mobile</title>
-    </head>
-    <body>
-    <style type="text/css">
-    body{
-        background-color: #eee;
-    }
-    .col-lg-8{
-        background-color: #fff;
-    }
-    </style>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-                  <div class="container-fluid">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Bootstrap-fullscreen-select by craftpip</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="mystyles.css" rel="stylesheet">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- hilight -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+</head>
+<body>
+<div style="height: 15px"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="logo-wrapper-project">
+                <div class="logo-wrapper-project"></div>
+            </div>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                      </button>
-                      <a class="navbar-brand" href="#">Brand</a>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><span class="craftpip-logo"></span></a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                      <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                      <form class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                      </form>
-                      <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Link</a></li>
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                          </ul>
-                        </li>
-                      </ul>
+                        <ul class="nav navbar-nav">
+                            <li class=""><a href="#"><i class="fa fa-github"></i> Github home</a></li>
+                            <li class=""><a href="#">Project page</a></li>
+                            <li class=""><a href="#">Contact</a></li>
+                        </ul>
+                        <!-- <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Link</a></li>
+                        </ul> -->
                     </div><!-- /.navbar-collapse -->
-                  </div><!-- /.container-fluid -->
-                </nav>
-            </div>
+                </div><!-- /.container-fluid -->
+            </nav>
         </div>
     </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="sticky-alt">
+                <p>
+                    <strong>bootstrap-fullscreen-select</strong><br>
+                    <a href="https://github.com/craftpip/bootstrap-fullscreen-select">
+                        view on <i class="fa fa-github"></i> Github
+                    </a>
+                </p>
+                <div class="btn-group btn-group-justified">
+                    <a href="https://github.com/craftpip/bootstrap-fullscreen-select/zipball/master" class="btn btn-default btn-lg">
+                        <i class="fa fa-download"></i> ZIP File
+                    </a>
+                    <a href="https://github.com/craftpip/bootstrap-fullscreen-select/tarball/master" class="btn btn-default btn-lg"> TAR Ball</a>
+                </div>
+                <div class="spacer15"></div>
+                <div class="panel panel-default">
+                    <div class="list-group">
+                        <a class="list-group-item" href="#introduction"><i class="fa fa-circle-o fa-fw"></i> Introduction / Download</a>
+                        <a class="list-group-item" href="#usage"><i class="fa fa-circle-o fa-fw"></i> Usage</a>
+                        <a class="list-group-item" href="#examples"><i class="fa fa-circle-o fa-fw"></i> Examples</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <section id="introduction">
+                <header>
+                    <h1 style="margin-top:0px;">bootstrap-fullscreen-select</h1>
+                    <p>
+                        A custom select for @twitter bootstrap. <br>
+                        unlike others, this plugin provides a fullscreen select feature, that is trigger via a custom defined element.<br>
+                    </p>
+                    <p>
+                        <i class="fa fa-circle-o"></i> Designed for Mobile UI, when it is not practical to use a dropdown select on a small display.
+                    </p>
+                </header>
+            </section>
+            <section id="usage">
+                <h1>usage</h1>
+                <h4>html: </h4>
+<pre><code class="html">&lt;select class="form-control" id="mySelectElement"&gt; //your select element
+    &lt;option value="0"&gt;Something&lt;/option&gt;
+    &lt;option value="1"&gt;Something else&lt;/option&gt;
+    &lt;option value="2"&gt;Something even else&lt;/option&gt;
+    &lt;option value="3"&gt;Enough&lt;/option&gt;
+&lt;/select&gt;
 
-    <div class="container">
-    	<div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h1>Basic usage</h1>
-                <p></p>
+&lt;button class="btn btn-default" id="myTriggerBtn"&gt;Show&lt;/button&gt; //the element on which user will interact.</code></pre>
 
-                <button class="btn btn-primary" id="triggerBy">example id="triggerBy"</button>
-                <select id="selectElem" style="" >
-                    <option value="1">idea</option>
-                    <option value="2">vodafone</option>
-                    <option value="3">aircel</option>
-                    <option value="4">tata docomo</option>
-                    <option value="5">that</option>
-                </select>
+<!--                 
+<select class="form-control" id="mySelectElement" style="width:300px;display:inline">
+    <option value="0">Something</option>
+    <option value="1">Something else</option>
+    <option value="2">Something even else</option>
+    <option value="3">Enough</option>
+</select>
 
-                <code>$('asdasd')</code>
+<button class="btn btn-default" id="myTriggerBtn">Show</button>  -->
 
-    			<h1>2nd</h1>
-    			<p></p>
+                <h4>javascript: </h4>
+<pre><code class="js">
 
-    			<button class="btn btn-primary" id="asdasd">example id="triggerBy"</button>
-    			<select id="dasdas" style="" multiple>
-    				<option value="1">idea</option>
-    				<option value="2">vodafone</option>
-    				<option value="3">aircel</option>
-    				<option value="4">tata docomo</option>
-    				<option value="5">that</option>
-    			</select>
+</code></pre>
 
-    			<code>$('asdasd')</code>
-    		</div>
-    	</div>
+            </section>
+            <section id="examples">
+                <h1>examples</h1>
+                <p>
+                    
+                </p>
+            </section>
+        </div>
     </div>
-        <script type="text/javascript" src="js/libs/jquery.js"></script>
-        <script type="text/javascript" src="js/bootstrap-mobile-select.js"></script>
-        <script type="text/javascript">
-        $(document).ready(function(){
+</div>
 
-            bootSelect.init({
-                selectControl: '#selectElem',
-                on: '#triggerBy',
-                title: 'Order by'
-            });
-            
-            bootSelect.init({
-                selectControl: '#dasdas',
-                on: '#asdasd',
-                title: 'this by'
-            });
-        });
-        </script>
-    </body>
+<script type="text/javascript" src="javascript.js"></script>
+
+</body>
+
 </html>

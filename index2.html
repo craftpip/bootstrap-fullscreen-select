@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-mobile-select.css" />
+        <title>bootstrap select mobile</title>
+    </head>
+    <body>
+    <style type="text/css">
+    body{
+        background-color: #eee;
+    }
+    .col-lg-8{
+        background-color: #fff;
+    }
+    </style>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                  <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="#">Brand</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                      <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                      </form>
+                      <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+    	<div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h1>Basic usage</h1>
+                <p></p>
+
+                <button class="btn btn-primary" id="triggerBy">example id="triggerBy"</button>
+                <select id="selectElem" style="" >
+                    <option value="1">idea</option>
+                    <option value="2">vodafone</option>
+                    <option value="3">aircel</option>
+                    <option value="4">tata docomo</option>
+                    <option value="5">that</option>
+                </select>
+
+                <code>$('asdasd')</code>
+
+    			<h1>2nd</h1>
+    			<p></p>
+
+    			<button class="btn btn-primary" id="asdasd">example id="triggerBy"</button>
+    			<select id="dasdas" style="" multiple>
+    				<option value="1">idea</option>
+    				<option value="2">vodafone</option>
+    				<option value="3">aircel</option>
+    				<option value="4">tata docomo</option>
+    				<option value="5">that</option>
+    			</select>
+
+    			<code>$('asdasd')</code>
+    		</div>
+    	</div>
+    </div>
+        <script type="text/javascript" src="js/libs/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap-mobile-select.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+
+            bootSelect.init({
+                selectControl: '#selectElem',
+                on: '#triggerBy',
+                title: 'Order by'
+            });
+            
+            bootSelect.init({
+                selectControl: '#dasdas',
+                on: '#asdasd',
+                title: 'this by'
+            });
+        });
+        </script>
+    </body>
+</html>
