@@ -2,75 +2,142 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="chrome=1">
-	<title>Bootstrap-fullscreen-select by craftpip</title>
-
-	<link rel="stylesheet" href="stylesheets/styles.css">
-	<link rel="stylesheet" href="stylesheets/pygment_trac.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<!--[if lt IE 9]>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Bootstrap-fullscreen-select by craftpip</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="mystyles.css" rel="stylesheet">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- hilight -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
 </head>
-
 <body>
-	<div class="wrapper">
-		<header>
-			<h1>Bootstrap-fullscreen-select</h1>
-			<p>bootstrap select for mobile devices, originally made for select controls in cordova mobile applications.</p>
+<div style="height: 15px"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="logo-wrapper-project">
+                <div class="logo-wrapper-project"></div>
+            </div>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><span class="craftpip-logo"></span></a>
+                    </div>
 
-			<p class="view"><a href="https://github.com/craftpip/bootstrap-fullscreen-select">View the Project on GitHub <small>craftpip/bootstrap-fullscreen-select</small></a>
-			</p>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class=""><a href="#"><i class="fa fa-github"></i> Github home</a></li>
+                            <li class=""><a href="#">Project page</a></li>
+                            <li class=""><a href="#">Contact</a></li>
+                        </ul>
+                        <!-- <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Link</a></li>
+                        </ul> -->
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="sticky-alt">
+                <p>
+                    <strong>bootstrap-fullscreen-select</strong><br>
+                    <a href="https://github.com/craftpip/bootstrap-fullscreen-select">
+                        view on <i class="fa fa-github"></i> Github
+                    </a>
+                </p>
+                <div class="btn-group btn-group-justified">
+                    <a href="https://github.com/craftpip/bootstrap-fullscreen-select/zipball/master" class="btn btn-default btn-lg">
+                        <i class="fa fa-download"></i> ZIP File
+                    </a>
+                    <a href="https://github.com/craftpip/bootstrap-fullscreen-select/tarball/master" class="btn btn-default btn-lg"> TAR Ball</a>
+                </div>
+                <div class="spacer15"></div>
+                <div class="panel panel-default">
+                    <div class="list-group">
+                        <a class="list-group-item" href="#introduction"><i class="fa fa-circle-o fa-fw"></i> Introduction / Download</a>
+                        <a class="list-group-item" href="#usage"><i class="fa fa-circle-o fa-fw"></i> Usage</a>
+                        <a class="list-group-item" href="#examples"><i class="fa fa-circle-o fa-fw"></i> Examples</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <section id="introduction">
+                <header>
+                    <h1 style="margin-top:0px;">bootstrap-fullscreen-select</h1>
+                    <p>
+                        A custom select for @twitter bootstrap. <br>
+                        unlike others, this plugin provides a fullscreen select feature, that is trigger via a custom defined element.<br>
+                    </p>
+                    <p>
+                        <i class="fa fa-circle-o"></i> Designed for Mobile UI, when it is not practical to use a dropdown select on a small display.
+                    </p>
+                </header>
+            </section>
+            <section id="usage">
+                <h1>usage</h1>
+                <h4>html: </h4>
+<pre><code class="html">&lt;select class="form-control" id="mySelectElement"&gt; //your select element
+    &lt;option value="0"&gt;Something&lt;/option&gt;
+    &lt;option value="1"&gt;Something else&lt;/option&gt;
+    &lt;option value="2"&gt;Something even else&lt;/option&gt;
+    &lt;option value="3"&gt;Enough&lt;/option&gt;
+&lt;/select&gt;
 
+&lt;button class="btn btn-default" id="myTriggerBtn"&gt;Show&lt;/button&gt; //the element on which user will interact.</code></pre>
 
-			<ul>
-				<li><a href="https://github.com/craftpip/bootstrap-fullscreen-select/zipball/master">Download <strong>ZIP File</strong></a>
-				</li>
-				<li><a href="https://github.com/craftpip/bootstrap-fullscreen-select/tarball/master">Download <strong>TAR Ball</strong></a>
-				</li>
-				<li><a href="https://github.com/craftpip/bootstrap-fullscreen-select">View On <strong>GitHub</strong></a>
-				</li>
-			</ul>
-		</header>
-		<section>
-			<h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<!--                 
+<select class="form-control" id="mySelectElement" style="width:300px;display:inline">
+    <option value="0">Something</option>
+    <option value="1">Something else</option>
+    <option value="2">Something even else</option>
+    <option value="3">Enough</option>
+</select>
 
-			<pre><code>$ cd your_repo_root/repo_name
-				$ git fetch origin
-				$ git checkout gh-pages
-				</code></pre>
+<button class="btn btn-default" id="myTriggerBtn">Show</button>  -->
 
-			<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+                <h4>javascript: </h4>
+<pre><code class="js">
 
-			<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+</code></pre>
 
-			<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+            </section>
+            <section id="examples">
+                <h1>examples</h1>
+                <p>
+                    
+                </p>
+            </section>
+        </div>
+    </div>
+</div>
 
-			<h3>
-      
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-			<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-			<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-			<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-			<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-			<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-		</section>
-		<footer>
-			<p>This project is maintained by <a href="https://github.com/craftpip">craftpip</a>
-			</p>
-		</footer>
-	</div>
-	<script src="javascripts/scale.fix.js"></script>
+<script type="text/javascript" src="javascript.js"></script>
 
 </body>
 
