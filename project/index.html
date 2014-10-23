@@ -14,8 +14,10 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="mystyles.css" rel="stylesheet">
     <!-- Latest compiled and minified JavaScript -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -36,48 +38,34 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Brand</a>
+                        <a class="navbar-brand" href="#"><span class="craftpip-logo"></span></a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class=""><a href="#">Home</a></li>
-                            <li class=""><a href="#">Project</a></li>
-                            <li class=""><a href="#">Link</a></li>
+                            <li class=""><a href="#"><i class="fa fa-github"></i> Github home</a></li>
+                            <li class=""><a href="#">Project page</a></li>
+                            <li class=""><a href="#">Contact</a></li>
                         </ul>
-                        <ul class="nav navbar-nav navbar-right">
+                        <!-- <ul class="nav navbar-nav navbar-right">
                             <li><a href="#">Link</a></li>
-                        </ul>
+                        </ul> -->
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
         </div>
     </div>
-
 </div>
-<div class="container">
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="jumbotron">
-                <h1 class="text-center">Custom fullscreen select</h1>
-                <p class="text-center">...</p>
-                <p class="text-center"><a class="btn btn-default btn-lg" role="button"><i class="fa fa-download"></i> download zip</a></p>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="container">
     <div class="row">
         <div class="col-md-3">
             <div class="panel panel-default sticky-alt">
                 <!--<div class="panel-heading">yo</div>-->
                 <div class="list-group">
-                    <a class="list-group-item" href="#introduction"><i class="fa fa-circle fa-fw"></i> Introduction</a>
-                    <a class="list-group-item" href="#"><i class="fa fa-circle fa-fw"></i> Usage</a>
-                    <a class="list-group-item" href="#"><i class="fa fa-circle fa-fw"></i> Examples</a>
+                    <a class="list-group-item" href="#introduction"><i class="fa fa-circle-o fa-fw"></i> Introduction / Download</a>
+                    <a class="list-group-item" href="#"><i class="fa fa-circle-o fa-fw"></i> Usage</a>
+                    <a class="list-group-item" href="#"><i class="fa fa-circle-o fa-fw"></i> Examples</a>
                 </div>
             </div>
         </div>
@@ -89,6 +77,14 @@
                 <br>iDeal for mobile devices.<br>
                 supports select and multiple select elements.
             </p>
+            <h4>Download</h4>
+            <div class="btn-group btn-justified">
+                <a href="https://github.com/craftpip/bootstrap-fullscreen-select/zipball/master" class="btn btn-primary btn-lg">
+                    <i class="fa fa-download"></i> ZIP File
+                </a>
+                <a href="https://github.com/craftpip/bootstrap-fullscreen-select/tarball/master" class="btn btn-default btn-lg"> TAR Ball</a>
+                <a href="https://github.com/craftpip/bootstrap-fullscreen-select" class="btn btn-default btn-lg">View on github</a>
+            </div>
         </div>
     </div>
 </div>
@@ -107,7 +103,17 @@
     $(document).ready(function () {
         adjustWidth();
     });
+    // $('.sticky-alt a').click(function(e){
+    //     var href = $(this).attr('href');
+    //     console.log(href);
+    //     var scroll = $(href).offset().top-10;
+    //     console.log(scroll);
+    //     // $('html, body').animate({
+    //     //     scrollTop: scroll
+    //     // }, 400);
 
+    //     // return false;
+    // });
     $(window).scroll(function(){
         var sti = $('.sticky-alt').parent().offset().top-30
         console.log(sti);

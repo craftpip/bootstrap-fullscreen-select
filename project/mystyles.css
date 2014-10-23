@@ -1,0 +1,9 @@
+.craftpip-logo{
+	background-image: url('logo-name.png');
+	background-size: contain;
+	/*background-color: black;*/
+	background-position: center;
+	width: 130px;
+	display:block;
+	height:20px;
+}
