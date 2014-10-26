@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3018058a-9341-4ec6-a9a2-4e1be687eb31" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\home\htdocs\bootstrap-fullscreen-select\javascript.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\home\htdocs\bootstrap-fullscreen-select\mystyles.css" afterPath="" />
-    </list>
+    <list default="true" id="3018058a-9341-4ec6-a9a2-4e1be687eb31" name="Default" comment="" />
     <ignored path="bootstrap-fullscreen-select.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,7 +26,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="38" selection-start="4194" selection-end="4194" vertical-scroll-proportion="0.2450658" vertical-offset="1245" max-vertical-offset="2720">
+            <state line="58" column="29" selection-start="3153" selection-end="3153" vertical-scroll-proportion="0.5805921" vertical-offset="633" max-vertical-offset="2720">
               <folding />
             </state>
           </provider>
@@ -130,7 +127,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1374" height="776" extended-state="6" />
+    <frame x="-4" y="-4" width="1374" height="776" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -172,7 +169,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="38" selection-start="4194" selection-end="4194" vertical-scroll-proportion="0.2450658" vertical-offset="1245" max-vertical-offset="2720">
+        <state line="58" column="29" selection-start="3153" selection-end="3153" vertical-scroll-proportion="0.5805921" vertical-offset="633" max-vertical-offset="2720">
           <folding />
         </state>
       </provider>
