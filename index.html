@@ -15,13 +15,18 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="mystyles.css" rel="stylesheet">
+    <link href="demo.css" rel="stylesheet">
     <!-- Latest compiled and minified JavaScript -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!-- hilight -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+    <!-- hey -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-mobile-select.css" />
+    <script type="text/javascript" src="js/bootstrap-mobile-select.js"></script>
+
 </head>
 <body>
 <div style="height: 15px"></div>
@@ -41,15 +46,15 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#"><span class="craftpip-logo"></span></a>
+                        <a class="navbar-brand" href="http://craftpip.com"><span class="craftpip-logo"></span></a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class=""><a href="#"><i class="fa fa-github"></i> Github home</a></li>
-                            <li class=""><a href="#">Project page</a></li>
-                            <li class=""><a href="#">Contact</a></li>
+                            <li class=""><a href="http://github.com/craftpip"><i class="fa fa-github"></i> Github home</a></li>
+                            <li class=""><a href="http://github.com/craftpip/bootstrap-fullscreen-select">Project page</a></li>
+                            <li class=""><a href="http://craftpip.com/#/contact">Contact</a></li>
                         </ul>
                         <!-- <ul class="nav navbar-nav navbar-right">
                             <li><a href="#">Link</a></li>
@@ -122,8 +127,13 @@
 <button class="btn btn-default" id="myTriggerBtn">Show</button>  -->
 
                 <h4>javascript: </h4>
-<pre><code class="js">
-
+<pre><code class="js">$(document).ready(function(){
+    bootSelect.init({
+        selectControl: '#mySelectElement', //the select element
+        on: '#myTriggerBtn', //the element where user will interact
+        title: 'Select something' //title of the full screen select.
+    });
+});
 </code></pre>
 
             </section>
@@ -137,7 +147,7 @@
     </div>
 </div>
 
-<script type="text/javascript" src="javascript.js"></script>
+<script type="text/javascript" src="demo.js"></script>
 
 </body>
 
