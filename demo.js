@@ -10,9 +10,9 @@ $(document).ready(function () {
 });
 $(window).scroll(function(){
     var sti = $('.sticky-alt').parent().offset().top-30
-    console.log(sti);
+    // console.log(sti);
     var scr = $(window).scrollTop()
-    console.log(scr);
+    // console.log(scr);
 
     if(scr > sti){
         $('.sticky-alt').css({
@@ -26,4 +26,11 @@ $(window).scroll(function(){
         });
     }
 
+});
+$('.gotoSmooth').click(function(){
+    var body = $("html, body");
+    body.animate({
+        scrollTop: $($(this).attr('href')).offset().top-10
+    }, '500', 'swing');
+    return false;
 });

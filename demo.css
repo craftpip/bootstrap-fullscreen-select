@@ -7,6 +7,9 @@
 	display:block;
 	height:20px;
 }
+body *{
+	border-radius: 0px !important;
+}
 .spacer15{
 	height: 15px;
 }
@@ -20,10 +23,14 @@ pre{
 	background: #fff !important;
 }
 .btn-download{
-	background: #eee;
-	border:solid 1px #ddd;
-	color: #555;
+	background: #3498db;
+	border:solid 1px #2980b9;
+	color: #fff;
 }
 .btn-download:hover{
-	background: #ddd;
+	background: #2980b9;
+	color: #fff;
+}
+body{
+	background-color: #eee;
 }
