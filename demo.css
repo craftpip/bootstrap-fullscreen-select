@@ -13,3 +13,17 @@
 pre{
 	padding: 0 !important;
 }
+.well, code, pre{
+	background: #f4f4f4 !important;
+}
+.well pre, .well code{
+	background: #fff !important;
+}
+.btn-download{
+	background: #eee;
+	border:solid 1px #ddd;
+	color: #555;
+}
+.btn-download:hover{
+	background: #ddd;
+}
