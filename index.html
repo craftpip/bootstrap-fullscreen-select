@@ -30,7 +30,7 @@
 </head>
 <body>
 <div style="height: 15px"></div>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
             <div class="logo-wrapper-project">
@@ -65,7 +65,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
             <div class="sticky-alt">
@@ -76,10 +76,10 @@
                     </a>
                 </p>
                 <div class="btn-group btn-group-justified">
-                    <a href="https://github.com/craftpip/bootstrap-fullscreen-select/zipball/master" class="btn btn-default btn-lg">
+                    <a href="https://github.com/craftpip/bootstrap-fullscreen-select/zipball/master" class="btn btn-download btn-lg">
                         <i class="fa fa-download"></i> ZIP File
                     </a>
-                    <a href="https://github.com/craftpip/bootstrap-fullscreen-select/tarball/master" class="btn btn-default btn-lg"> TAR Ball</a>
+                    <a href="https://github.com/craftpip/bootstrap-fullscreen-select/tarball/master" class="btn btn-download btn-lg"> TAR Ball</a>
                 </div>
                 <div class="spacer15"></div>
                 <div class="panel panel-default">
@@ -107,7 +107,44 @@
             <section id="usage">
                 <h1>usage</h1>
                 <h4>html: </h4>
-<pre><code class="html">&lt;select class="form-control" id="mySelectElement"&gt; //your select element
+<pre><code class="html">&lt;select class="form-control" id="theSelect"&gt; // the ID of your select element
+    &lt;option value="0"&gt;Pizza&lt;/option&gt;
+    &lt;option value="1"&gt;Burger&lt;/option&gt;
+    &lt;option value="2"&gt;Tacos&lt;/option&gt;
+    &lt;option value="3"&gt;Something else&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;button class="btn btn-default" id="theBtn"&gt;Show&lt;/button&gt; //the ID of the element on which user will interact.</code></pre>
+                <h4>javascript: </h4>
+                <p>
+                    IMPORTANT: please use ID to refer to an element.
+                    you can also use multiple initializations
+                </p>
+<pre><code class="js">$(document).ready(function(){
+    bootSelect.init({
+        selectControl: '#theSelect', //the select element
+        on: '#theBtn', //the element where user will interact
+        title: 'What to eat?' //title of the full screen select.
+    });
+});
+</code></pre>
+
+            </section>
+            <section id="examples">
+                <h1>examples</h1>
+                <h3>select element:</h3>
+                    <div class="well well-sm">
+                        <select class="form-control" id="mySelectElement" style="width:300px;display:inline">
+                            <option value="0">Something</option>
+                            <option value="1">Something else</option>
+                            <option value="2">Something even else</option>
+                            <option value="3">Enough</option>
+                        </select>
+                        <button class="btn btn-primary" id="myTriggerBtn">Select something</button>
+
+                <h4>HTML: </h4>
+                <p class="text-primary"><span class="">The select elements are shown for demonstration purpose, you can hide then in production.</span></p>
+                        <pre><code class="html">&lt;select class="form-control" id="mySelectElement"&gt; //your select element
     &lt;option value="0"&gt;Something&lt;/option&gt;
     &lt;option value="1"&gt;Something else&lt;/option&gt;
     &lt;option value="2"&gt;Something even else&lt;/option&gt;
@@ -115,17 +152,6 @@
 &lt;/select&gt;
 
 &lt;button class="btn btn-default" id="myTriggerBtn"&gt;Show&lt;/button&gt; //the element on which user will interact.</code></pre>
-
-<!--                 
-<select class="form-control" id="mySelectElement" style="width:300px;display:inline">
-    <option value="0">Something</option>
-    <option value="1">Something else</option>
-    <option value="2">Something even else</option>
-    <option value="3">Enough</option>
-</select>
-
-<button class="btn btn-default" id="myTriggerBtn">Show</button>  -->
-
                 <h4>javascript: </h4>
 <pre><code class="js">$(document).ready(function(){
     bootSelect.init({
@@ -135,19 +161,76 @@
     });
 });
 </code></pre>
+                <p>The plugin fired a change event on the select element on user interaction.</p>
+                    <pre><code class="js">$('#mySelectElement').change(function(){
+    alert($(this).val());
+});
+</code></pre>
+                    </div>
+                <h3>select element attribute multiple:</h3>
+                    <div class="well well-sm">
+                        <select class="form-control" id="mySelectMultipleElement" style="width:300px;display:inline" multiple>
+                            <option value="0">Something</option>
+                            <option value="1">Something else</option>
+                            <option value="2">Something even else</option>
+                            <option value="3">Enough</option>
+                        </select><br>
+                        <button class="btn btn-primary" id="myTriggerMultipleBtn">Select something</button>
 
-            </section>
-            <section id="examples">
-                <h1>examples</h1>
-                <p>
-                    
-                </p>
+                <h4>HTML: </h4>
+                <p class="text-primary"><span class="">The select elements are shown for demonstration purpose, you can hide then in production.</span></p>
+                        <pre><code class="html">&lt;select class="form-control" id="mySelectMultipleElement" multiple&gt; //your select element
+    &lt;option value="0"&gt;Something&lt;/option&gt;
+    &lt;option value="1"&gt;Something else&lt;/option&gt;
+    &lt;option value="2"&gt;Something even else&lt;/option&gt;
+    &lt;option value="3"&gt;Enough&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;button class="btn btn-default" id="myTriggerMultipleBtn"&gt;Show&lt;/button&gt; //the element on which user will interact.</code></pre>
+                <h4>javascript: </h4>
+<pre><code class="js">$(document).ready(function(){
+    bootSelect.init({
+        selectControl: '#mySelectMultipleElement', //the select element
+        on: '#myTriggerMultipleBtn', //the element where user will interact
+        title: 'Select multiple things' //title of the full screen select.
+    });
+});
+</code></pre>
+                <p>The plugin fired a change event on the select element on user interaction.</p>
+                    <pre><code class="js">$('#mySelectMultipleElement').change(function(){
+    alert($(this).val());
+});
+</code></pre>
+                    </div>
+
             </section>
         </div>
     </div>
 </div>
 
-<script type="text/javascript" src="demo.js"></script>
+<script type="text/javascript">
+    // javascript for the 
+    $(document).ready(function(){
+        bootSelect.init({
+            selectControl: '#mySelectElement', //the select element
+            on: '#myTriggerBtn', //the element where user will interact
+            title: 'Select something' //title of the full screen select.
+        });
+        bootSelect.init({
+            selectControl: '#mySelectMultipleElement', //the select element
+            on: '#myTriggerMultipleBtn', //the element where user will interact
+            title: 'Select multiple things' //title of the full screen select.
+        });
+        $('#mySelectElement').change(function(){
+            alert($(this).val());
+        });
+        $('#mySelectMultipleElement').change(function(){
+            alert($(this).val());
+        });
+    });
+</script>
+
+<script type="text/javascript" src="demo.js"></script> <!-- javascript for the demo page interface. -->
 
 </body>
 

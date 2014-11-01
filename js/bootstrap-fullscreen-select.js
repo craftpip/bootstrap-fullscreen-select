@@ -1,22 +1,21 @@
-
 // |-------------------------------------------------|
 // |    bootstrap select for mobile devices. v1.2    |
 // |-------------------------------------------------|
-// |      made specially for use with cordova.       |
+// |   Made specially for use with cordova/phonegap  |
 // |-------------------------------------------------|
 // |    &copy; boniface pereira. www.craftpip.com    |
 // |-------------------------------------------------|
 
 var bootSelect = {
 	settings: {
-		template: 'js/bootstrap-mobile-template.html'
+		template: 'js/bootstrap-fullscreen-select.html'
 	},
 	init: function(object){
 
 		if(bootSelect[object.on]) {
 			var b = bootSelect[object.on];
 			$('.bootSelect[data-obj="'+b.object.on.substr(1)+'"]').remove();
-			console.log('removed old element');
+			console.log('BootSelect: intialized Twice. removing old element and reloading.');
 		};
 
 		$selectContorl = $(object.selectControl);
