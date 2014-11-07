@@ -10,18 +10,18 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/libs/bootstrap.min.css">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/libs/bootstrap-theme.min.css">
+    <link href="css/libs/font-awesome.min.css" rel="stylesheet">
     <link href="demo.css" rel="stylesheet">
     <!-- Latest compiled and minified JavaScript -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/bootstrap.min.js"></script>
     <!-- hilight -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+    <link rel="stylesheet" href="css/libs/default.min.css">
+    <script src="js/libs/highlight.min.js"></script>
 
     <!-- hey -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap-fullscreen-select.css" />
@@ -30,13 +30,13 @@
 </head>
 <body>
 <div style="height: 15px"></div>
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-lg-12">
             <div class="logo-wrapper-project">
                 <div class="logo-wrapper-project"></div>
             </div>
-            <nav class="navbar navbar-default navbar-top-static" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
@@ -65,7 +65,8 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div style="height:50px"></div>
+<div class="container">
     <div class="row">
         <div class="col-md-3">
             <div class="sticky-alt">
@@ -134,7 +135,27 @@
                 <h1>examples</h1>
                 <h3>select element:</h3>
                     <div class="well well-sm">
-                        <select class="form-control" id="mySelectElement" style="width:300px;display:inline">
+                        
+<select class="optgroupselect" data-mobile-select-triggerElement="#myTriggerBtn">
+  <optgroup label="Swedish Cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+  </optgroup>
+  <optgroup label="German Cars">
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+    <option value="0">Something</option>
+    <option value="1">Something else</option>
+    <option value="2">Something even else</option>
+    <option value="3">Enough</option>
+  </optgroup>
+</select>
+ 
+                        <select class="form-control optgroupselect" id="mySelectElement" style="width:300px;display:inline" multiple>
                             <option value="0">Something</option>
                             <option value="1">Something else</option>
                             <option value="2">Something even else</option>
@@ -202,32 +223,14 @@
 });
 </code></pre>
                     </div>
-
             </section>
         </div>
     </div>
 </div>
-
 <script type="text/javascript">
-    // javascript for the 
-    $(document).ready(function(){
-        bootSelect.init({
-            selectControl: '#mySelectElement', //the select element
-            on: '#myTriggerBtn', //the element where user will interact
-            title: 'Select something' //title of the full screen select.
-        });
-        bootSelect.init({
-            selectControl: '#mySelectMultipleElement', //the select element
-            on: '#myTriggerMultipleBtn', //the element where user will interact
-            title: 'Select multiple things' //title of the full screen select.
-        });
-        $('#mySelectElement').change(function(){
-            alert($(this).val());
-        });
-        $('#mySelectMultipleElement').change(function(){
-            alert($(this).val());
-        });
-    });
+    $(function(){
+        $('.optgroupselect').mobileSelect({animation: 'scale', animationSpeed: 400});
+    })
 </script>
 
 <script type="text/javascript" src="demo.js"></script> <!-- javascript for the demo page interface. -->

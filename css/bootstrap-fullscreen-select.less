@@ -1,73 +1,128 @@
-.bootSelect{
-	position: fixed;
-	left: -15px;
-	right: -15px;
-	top: 0;
-	bottom: 15px;
-	z-index: 88;
-	background-color: white;
-	
-	*{
-		border-radius: 0px;
-	}
-
-	.bootSelect-title{
-		font-size: 1.5em;
-		text-transform: capitalize;
-	}
-	.list-container{
-		overflow: hidden;
-		overflow-y: scroll;
-
-		a{
-			display: block;
-			background-color: #fff;
-			border-bottom: solid 1px #ddd;
-			padding: 10px 20px;
-
-			&:active{
-				background-color: #ddd;
-			}
-			&:hover{
-				text-decoration: none;
-			}
-
-		}
-	}
-
-	.list-container[data-multiple="true"]{
-		a{
-			padding: 10px 20px 10px 10px;
-
-			&:before{
-				content: '';
-				background-color: #eee;
-				height: 22px;
-				width: 22px;
-				display: inline-block;
-				vertical-align: middle;
-				margin-top: -2px;
-				margin-right: 10px;
-				border: solid 1px #ddd;
-				background-image: url('../img/tick.png');
-				background-repeat: no-repeat;
-				background-position: 21px 0px;
-				transition: all .2s;
-			}
-
-			&.check:before{
-				background-position: 1px 0px;
-				
-			}
-		}
-	}
-	.list-container[data-multiple="false"] {
-		a{
-			&.check{
-				background-color: #eee;
-			}
-		}
-	}
-
+body.mobileSelect-noscroll{
+    overflow:hidden !important;
 }
 
+.mobileSelect{
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 9999999;
+    font-size: 18px;
+    transition: all .4s;
+    display: none;
+
+    > div{
+        position: absolute;
+        top: 20px;
+        bottom: 20px;
+        left: 40px;
+        right: 40px;
+        border-radius: 4px;
+        background: #eee;
+        overflow: hidden;
+        box-shadow: 0 3px 6px rgba(0,0,0,.4);
+        transform: scale(1) translate(0px, 0px);
+        transition: all .4s;
+        visibility: visible;
+
+        &.anim-top,&.anim-left,&.anim-right,&.anim-bottom,&.anim-opacity,&.anim-zoom,&.anim-scale,&.anim-none{
+            visibility: hidden;
+            opacity: 0;
+        }
+        &.anim-top{
+            transform: translate(0px, -100px);
+        }
+        &.anim-left{
+            transform: translate(-100px, 0px);
+        }
+        &.anim-right{
+            transform: translate(100px, 0px);
+        }
+        &.anim-bottom{
+            transform: translate(0px, 100px);
+        }
+        &.anim-opacity{
+            
+        }
+        &.anim-zoom{
+            transform: scale(1.2);
+        }
+        &.anim-scale{
+            transform: scale(0.95);
+        }
+        &.anim-none{
+            display:none;
+        }
+    }
+    
+    
+    .mobileSelect-title{
+        position:absolute;
+        background: #eee;
+        left: 0;
+        top: 0;
+        right: 0;
+        padding: 17px 20px;
+        height: 60px;
+        border-bottom: solid 1px #aaa;
+    }
+    .list-container{
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        overflow: hidden;
+        overflow-y: scroll;
+        
+        .mobileSelect-control{
+            display:block;
+            border-bottom: solid 1px #ddd;
+            padding: 17px 20px;
+            text-decoration: none;
+            background-color: #eee;
+            
+            &:hover, &:active{
+                background-color: #eee;
+            }
+            &.selected{
+                background-color: #28a4c9;
+                color: white;
+            }
+        }
+    }
+    .mobileSelect-buttons{
+        position:absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 60px;
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: separate;
+        
+        a{
+            text-decoration: none;
+            text-align:center;
+            display: table-cell;
+            background-color: #eee;
+            padding: 15px 20px;
+            border-top: solid 1px #aaa;
+            border-right: solid 1px #aaa;
+            color: #555;
+            &:last-child{
+                border-right: none;
+            }
+            &:hover, &:active{
+                text-decoration: none;
+                background-color: #ddd;
+            }
+        }
+    }
+}

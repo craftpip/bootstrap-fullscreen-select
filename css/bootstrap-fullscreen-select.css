@@ -1,57 +1,143 @@
-.bootSelect {
+body.mobileSelect-noscroll {
+  overflow: hidden !important;
+}
+.mobileSelect {
   position: fixed;
-  left: -15px;
-  right: -15px;
   top: 0;
-  bottom: 15px;
-  z-index: 88;
-  background-color: white;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 9999999;
+  font-size: 18px;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+  display: none;
 }
-.bootSelect * {
-  border-radius: 0px;
+.mobileSelect > div {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 40px;
+  right: 40px;
+  border-radius: 4px;
+  background: #eee;
+  overflow: hidden;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  -webkit-transform: scale(1) translate(0px, 0px);
+  -ms-transform: scale(1) translate(0px, 0px);
+  transform: scale(1) translate(0px, 0px);
+  -webkit-transition: all .4s;
+  transition: all .4s;
+  visibility: visible;
 }
-.bootSelect .bootSelect-title {
-  font-size: 1.5em;
-  text-transform: capitalize;
+.mobileSelect > div.anim-top,
+.mobileSelect > div.anim-left,
+.mobileSelect > div.anim-right,
+.mobileSelect > div.anim-bottom,
+.mobileSelect > div.anim-opacity,
+.mobileSelect > div.anim-zoom,
+.mobileSelect > div.anim-scale,
+.mobileSelect > div.anim-none {
+  visibility: hidden;
+  opacity: 0;
 }
-.bootSelect .list-container {
+.mobileSelect > div.anim-top {
+  -webkit-transform: translate(0px, -100px);
+  -ms-transform: translate(0px, -100px);
+  transform: translate(0px, -100px);
+}
+.mobileSelect > div.anim-left {
+  -webkit-transform: translate(-100px, 0px);
+  -ms-transform: translate(-100px, 0px);
+  transform: translate(-100px, 0px);
+}
+.mobileSelect > div.anim-right {
+  -webkit-transform: translate(100px, 0px);
+  -ms-transform: translate(100px, 0px);
+  transform: translate(100px, 0px);
+}
+.mobileSelect > div.anim-bottom {
+  -webkit-transform: translate(0px, 100px);
+  -ms-transform: translate(0px, 100px);
+  transform: translate(0px, 100px);
+}
+.mobileSelect > div.anim-zoom {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.mobileSelect > div.anim-scale {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+.mobileSelect > div.anim-none {
+  display: none;
+}
+.mobileSelect .mobileSelect-title {
+  position: absolute;
+  background: #eee;
+  left: 0;
+  top: 0;
+  right: 0;
+  padding: 17px 20px;
+  height: 60px;
+  border-bottom: solid 1px #aaa;
+}
+.mobileSelect .list-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-top: 60px;
+  margin-bottom: 60px;
   overflow: hidden;
   overflow-y: scroll;
 }
-.bootSelect .list-container a {
+.mobileSelect .list-container .mobileSelect-control {
   display: block;
-  background-color: #fff;
   border-bottom: solid 1px #ddd;
-  padding: 10px 20px;
-}
-.bootSelect .list-container a:active {
-  background-color: #ddd;
-}
-.bootSelect .list-container a:hover {
+  padding: 17px 20px;
   text-decoration: none;
-}
-.bootSelect .list-container[data-multiple="true"] a {
-  padding: 10px 20px 10px 10px;
-}
-.bootSelect .list-container[data-multiple="true"] a:before {
-  content: '';
   background-color: #eee;
-  height: 22px;
-  width: 22px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-top: -2px;
-  margin-right: 10px;
-  border: solid 1px #ddd;
-  background-image: url('../img/tick.png');
-  background-repeat: no-repeat;
-  background-position: 21px 0px;
-  -webkit-transition: all .2s;
-  transition: all .2s;
 }
-.bootSelect .list-container[data-multiple="true"] a.check:before {
-  background-position: 1px 0px;
-}
-.bootSelect .list-container[data-multiple="false"] a.check {
+.mobileSelect .list-container .mobileSelect-control:hover,
+.mobileSelect .list-container .mobileSelect-control:active {
   background-color: #eee;
+}
+.mobileSelect .list-container .mobileSelect-control.selected {
+  background-color: #28a4c9;
+  color: white;
+}
+.mobileSelect .mobileSelect-buttons {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 60px;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+}
+.mobileSelect .mobileSelect-buttons a {
+  text-decoration: none;
+  text-align: center;
+  display: table-cell;
+  background-color: #eee;
+  padding: 15px 20px;
+  border-top: solid 1px #aaa;
+  border-right: solid 1px #aaa;
+  color: #555;
+}
+.mobileSelect .mobileSelect-buttons a:last-child {
+  border-right: none;
+}
+.mobileSelect .mobileSelect-buttons a:hover,
+.mobileSelect .mobileSelect-buttons a:active {
+  text-decoration: none;
+  background-color: #ddd;
 }
