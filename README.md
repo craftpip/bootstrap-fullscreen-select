@@ -6,6 +6,14 @@ mobileSelect makes it easy for mobile users to get the most of their screen.
 
 inspired by, [phonegap](http://phonegap.com/), [cordova](http://cordova.apache.org/) & [bootstrap-select](https://github.com/silviomoreto/bootstrap-select)
 
+## Installation
+
+Download the latest release [here](https://github.com/craftpip/bootstrap-fullscreen-select/archive/master.zip)<br>
+A full documentation page is included within the release.
+
+copy the css and js files from `/dist/` to your project, and link them to your HTML page.<br>
+and finally via Javascript run `$('select').mobileSelect()`.
+
 ## Demo and Documentation
 
 See a Bootstrap 3 example [here](http://craftpip.github.io/bootstrap-fullscreen-select).
