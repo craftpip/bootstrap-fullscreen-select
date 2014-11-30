@@ -14,7 +14,7 @@ See a Bootstrap 3 example [here](http://craftpip.github.io/bootstrap-fullscreen-
 
 [Boniface Pereira](https://github.com/craftpip)
 
-## Usage
+## Basic Usage
 
 Create your `<select>` with the `.mobileSelect` class.
 ```html
