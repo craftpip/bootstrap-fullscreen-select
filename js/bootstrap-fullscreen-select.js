@@ -1,6 +1,6 @@
 'use strict';
 /*!
- * Bootstrap-fullscreen-select v1.5 (http://craftpip.github.io/bootstrap-fullscreen-select/)
+ * Bootstrap-fullscreen-select v1.5.1 (http://craftpip.github.io/bootstrap-fullscreen-select/)
  *
  * www.craftpip.com
  *
