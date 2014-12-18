@@ -1,36 +1,37 @@
 'use strict';
 /*
  * Bootstrap-fullscreen-select v1.5.1 (http://craftpip.github.io/bootstrap-fullscreen-select/)
- *
- * www.craftpip.com
+ * Author: bonifacepereira
+ * Website: www.craftpip.com
+ * Contact: hey@craftpip.com
  *
  * Copyright 2013-2014 bootstrap-select
  * Licensed under MIT (https://github.com/craftpip/bootstrap-fullscreen-select/blob/master/LICENSE)
  */
-// $e = select element
-// $c = container element
-// $triggerElement = trigger element
+
 try {
     jQuery;
 } catch (e) {
     console.error('MobileSelect\'s javascript requires jQuery');
 }
+
 (function ($) {
+    
     $.fn.mobileSelect = function (options) {
         var $this = $(this);
-        
+
         /*
          * backout if no elements are selected.
          */
         if (!$this.length)
             return 'no elements to process';
-        
+
         /*
          * set an empty object if options === undefined
          */
         if (!options)
             options = {};
-        
+
         if (typeof options === 'string') {
             if (options === 'destroy') {
                 // destroy the mobile select initialization.
@@ -71,7 +72,6 @@ try {
         options = $.extend({}, $.fn.mobileSelect.defaults, options);
         // start iterating over!
         $this.each(function (i, a) {
-            console.log(i);
             var $elm = $(a);
             //reject non SELECT elements
             if ($elm[0].tagName !== 'SELECT') {
@@ -114,7 +114,9 @@ try {
                 if (this.$e.attr('data-style') !== undefined) {
                     this.style = this.$e.attr('data-style');
                 }
-                this.$e.before('<button class="btn ' + this.style + ' btn-mobileSelect-gen"><span class="text"></span> <span class="caret"></span></button>');
+                
+                var b = this.$e.attr('disabled') || '';
+                this.$e.before('<button class="btn ' + this.style + ' btn-mobileSelect-gen" '+b+'><span class="text"></span> <span class="caret"></span></button>');
                 this.$triggerElement = this.$e.prev();
                 this.$e.hide();
             } else {
@@ -150,20 +152,33 @@ try {
             this._appendOptionsList();
         },
         _appendOptionsList: function () {
-            
+
             /*
              * append options list.
              */
             this.$listcontainer.html('');
             var that = this;
+            var prevGroup = '';
             $.each(this.options, function (i, a) {
-                that.$listcontainer.append('<a href="#" class="mobileSelect-control" data-value="' + a.value + '">' + a.text + '</a>');
+                
+                if(a.group && a.group !== prevGroup){
+                    if(a.groupDisabled){
+                        var b = 'disabled';
+                    }
+                    that.$listcontainer.append('<span class="mobileSelect-group" '+b+'>'+a.group+'</span>');
+                    prevGroup = a.group;
+                }
+                if(a.groupDisabled || a.disabled){
+                    var b = 'disabled';
+                }
+                that.$listcontainer.append('<a href="#" class="mobileSelect-control" '+ b +' data-value="' + a.value + '">' + a.text + '</a>');
+                
             });
             this.sync();
             this._updateBtnCount();
         },
         _updateBtnCount: function () {
-            
+
             /*
              * Update generated button count.
              */
@@ -211,6 +226,10 @@ try {
             this.$c.find('.mobileSelect-control').on('click', function (e) {
                 e.preventDefault();
                 var $this = $(this);
+
+                if($this.attr('disabled') == 'disabled')
+                	return false;
+
                 if (that.isMultiple) {
                     $this.toggleClass('selected');
                 } else {
@@ -219,7 +238,7 @@ try {
             });
         },
         _unbindEvents: function () {
-            
+
             /*
              * to unbind events while destroy.
              */
@@ -229,7 +248,7 @@ try {
             this.$c.find('.mobileSelect-control').unbind('click');
         },
         sync: function () {
-            
+
             /*
              * sync from select element to mobile select container
              */
@@ -242,7 +261,7 @@ try {
             }
         },
         syncR: function () {
-            
+
             /*
              * sync from mobile select container to select element
              */
@@ -253,7 +272,7 @@ try {
             this.$e.val(selectedOptions);
         },
         hide: function () {
-            
+
             /*
              * hide animation with onClose callback
              */
@@ -267,7 +286,7 @@ try {
             }, this.animationSpeed);
         },
         show: function () {
-            
+
             /*
              * show animation with onOpen callback
              */
@@ -277,11 +296,11 @@ try {
             var that = this;
             setTimeout(function () {
                 that.$c.children('div').removeClass($.mobileSelect.animations.join(' '));
-            }, 0);
+            }, 10);
             this.onOpen.apply(this.$e);
         },
         _setUserOptions: function () {
-            
+
             /*
              * overwrite options with data-attributes if provided.
              */
@@ -315,25 +334,39 @@ try {
             }
         },
         _extractOptions: function () {
-            
+
             /*
              * Get options from the select element and store them in an array.
              */
             var options = [];
             $.each(this.$e.find('option'), function (i, a) {
-                if ($(this).text()) {
-                    var label = $(this).parent().is('optgroup') ? $(this).parent().attr('label') : false;
+                var $t = $(a);
+                if ($t.text()) {
+                    
+//                    var label = $t.parent().is('optgroup') ? $t.parent().attr('label') : false;
+                    
+                    if($t.parent().is('optgroup')){
+                        var label = $t.parent().attr('label');
+                        var labelDisabled = $t.parent().prop('disabled');
+                    }else{
+                        var label = false;
+                        var labelDisabled = false;
+                    }
+                    
                     options.push({
-                        value: $(this).val(),
-                        text: $.trim($(this).text()),
-                        grouplabel: label
+                        value: $t.val(),
+                        text: $.trim($t.text()),
+                        disabled: $t.prop('disabled'),
+                        group: label,
+                        groupDisabled: labelDisabled
                     });
+                    
                 }
             });
             this.options = options;
         },
         destroy: function () {
-            
+
             /*
              * destroy the select
              * unbind events
@@ -348,7 +381,7 @@ try {
             console.log('done ');
         },
         refresh: function () {
-            
+
             /*
              * refresh/sync the native select with the mobileSelect.
              */
@@ -358,7 +391,7 @@ try {
             this._bindEvents();
         }
     };
-    
+
     /*
      * for user defaults.
      */
@@ -366,7 +399,7 @@ try {
         elements: {}, //to store records
         animations: ['anim-top', 'anim-bottom', 'anim-left', 'anim-right', 'anim-opacity', 'anim-scale', 'anim-zoom', 'anim-none'] //supported animations
     };
-    
+
     /*
      * plugin defaults
      */
