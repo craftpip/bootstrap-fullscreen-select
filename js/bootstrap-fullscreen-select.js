@@ -1,5 +1,5 @@
 'use strict';
-/*!
+/*
  * Bootstrap-fullscreen-select v1.5.1 (http://craftpip.github.io/bootstrap-fullscreen-select/)
  *
  * www.craftpip.com
@@ -7,43 +7,62 @@
  * Copyright 2013-2014 bootstrap-select
  * Licensed under MIT (https://github.com/craftpip/bootstrap-fullscreen-select/blob/master/LICENSE)
  */
-
 // $e = select element
 // $c = container element
 // $triggerElement = trigger element
-
 try {
     jQuery;
 } catch (e) {
     console.error('MobileSelect\'s javascript requires jQuery');
 }
-(function($) {
-    $.fn.mobileSelect = function(options) {
+(function ($) {
+    $.fn.mobileSelect = function (options) {
         var $this = $(this);
-        // dont go further if no elements selected.
-        if (!$this.length) return 'no elements to process';
-        // set an empty object if options === undefined
-        if (!options) options = {}
-        if (typeof options == 'string') {
-            if (options == 'destroy') {
-                $this.each(function(i, a) {
-			        var id = $(a).attr('data-msid');
+        
+        /*
+         * backout if no elements are selected.
+         */
+        if (!$this.length)
+            return 'no elements to process';
+        
+        /*
+         * set an empty object if options === undefined
+         */
+        if (!options)
+            options = {};
+        
+        if (typeof options === 'string') {
+            if (options === 'destroy') {
+                // destroy the mobile select initialization.
+                $this.each(function (i, a) {
+                    var id = $(a).attr('data-msid');
                     $.mobileSelect.elements[id].destroy();
                     delete $.mobileSelect.elements[id];
                 });
             }
-            if (options == 'sync' || options == 'refresh') {
-            	$this.each(function(i, a){
-			        var id = $(a).attr('data-msid');
+            if (options === 'sync' || options === 'refresh') {
+                //sync changes in the options.
+                $this.each(function (i, a) {
+                    var id = $(a).attr('data-msid');
                     $.mobileSelect.elements[id].refresh();
-            	});
+                });
+            }
+            if (options === 'hide') {
+                // programmically hide a shown mobileSelect
+                $this.each(function (i, a) {
+                    var id = $(a).attr('data-msid');
+                    $.mobileSelect.elements[id].hide();
+                });
+            }
+            if (options === 'show') {
+                // programmicallly show a mobileSelect
+                $this.each(function (i, a) {
+                    var id = $(a).attr('data-msid');
+                    $.mobileSelect.elements[id].show();
+                });
             }
             return;
         }
-        // if options == hide
-        // if options == show
-        // if options == sync
-        // if options == destroy
         // if user defaults provided overwrite with mobileSelect defaults.
         if ($.mobileSelect.defaults) {
             $.extend($.fn.mobileSelect.defaults, $.mobileSelect.defaults);
@@ -51,7 +70,7 @@ try {
         // options to be merged with defaults.
         options = $.extend({}, $.fn.mobileSelect.defaults, options);
         // start iterating over!
-        $this.each(function(i, a) {
+        $this.each(function (i, a) {
             console.log(i);
             var $elm = $(a);
             //reject non SELECT elements
@@ -70,22 +89,26 @@ try {
             $elm.attr('data-msid', id);
             var mobileSelectObj = new Mobileselect(a, options);
             $.mobileSelect.elements[id] = mobileSelectObj;
-        })
-    }
-    var Mobileselect = function(element, options) {
+        });
+    };
+    var Mobileselect = function (element, options) {
         this.$e = $(element);
         $.extend(this, options);
         this.init();
-    }
+    };
     Mobileselect.prototype = {
-        init: function() {
+        init: function () {
             this._setUserOptions();
             this._extractOptions();
             this._buildHTML();
             this._bindEvents();
         },
-        _buildHTML: function() {
-            // build and insert the trigger element
+        _buildHTML: function () {
+
+            /*
+             * build and insert the trigger element
+             */
+
             if (this.$e.attr('data-triggerOn') === undefined) {
                 // no custom trigger element.
                 if (this.$e.attr('data-style') !== undefined) {
@@ -97,19 +120,26 @@ try {
             } else {
                 this.$triggerElement = $(this.$e.attr('data-triggerOn'));
             }
-            //----------
-            //build mobileSelect container HTML.
-            //----------
+
+            /*
+             * Build mobile select container HTML.
+             */
+
             //seting up the container.
             this.$c = $('<div class="mobileSelect-container"></div>').addClass(this.theme).appendTo('body');
+
             //appending the container template
             this.$c.html($.fn.mobileSelect.defaults.template);
+
             //settings container animations.
             this.$c.children('div').css({
                 '-webkit-transition': 'all ' + this.animationSpeed / 1000 + 's',
                 'transition': 'all ' + this.animationSpeed / 1000 + 's'
             }).css(this.padding).addClass('anim-' + this.animation);
-            // set title and buttons text.
+
+            /*
+             * set title buttons text.
+             */
             this.$c.find('.mobileSelect-title').html(this.title).end().find('.mobileSelect-savebtn').html(this.buttonSave).end().find('.mobileSelect-clearbtn').html(this.buttonClear).end().find('.mobileSelect-cancelbtn').html(this.buttonCancel).end();
             this.$listcontainer = this.$c.find('.list-container');
             if (!this.isMultiple) {
@@ -117,58 +147,68 @@ try {
             } else {
                 this.$listcontainer.data('multiple', 'true');
             }
-
             this._appendOptionsList();
         },
-        _appendOptionsList: function(){
-            //----------
-            // append options list.
-            //----------
+        _appendOptionsList: function () {
+            
+            /*
+             * append options list.
+             */
             this.$listcontainer.html('');
             var that = this;
-            $.each(this.options, function(i, a) {
+            $.each(this.options, function (i, a) {
                 that.$listcontainer.append('<a href="#" class="mobileSelect-control" data-value="' + a.value + '">' + a.text + '</a>');
             });
             this.sync();
             this._updateBtnCount();
         },
-        _updateBtnCount: function() {
-            // if(this.$triggerElement.is('button') && )
+        _updateBtnCount: function () {
+            
+            /*
+             * Update generated button count.
+             */
             if (this.$triggerElement.is('button') && this.$triggerElement.hasClass('btn-mobileSelect-gen')) {
                 var a = this.$triggerElement.find('.text'),
-                    b = this.$e.val();
-                if (b == null) {
-                    a.html(this.title);
+                        b = this.$e.val();
+                if (b === null) {
+                    a.html('Nothing selected');
                     return false;
                 }
                 if (this.isMultiple) {
-                    a.html('<strong>' + b.length + '</strong> Items selected');
+                    if (b.length === 1) {
+                        a.html(b);
+                    } else {
+                        a.html(b.length + ' items selected');
+                    }
                 } else {
-                    a.html('<strong>' + b + '</strong>');
+                    a.html(b);
                 }
             }
         },
-        _bindEvents: function() {
+        _bindEvents: function () {
+            /*
+             * binding events on trigger element & buttons.
+             */
             var that = this;
-            this.$triggerElement.on('click', function() {
+            this.$triggerElement.on('click', function () {
                 that.show();
             });
-            this.$c.find('.mobileSelect-savebtn').on('click', function(e) {
+            this.$c.find('.mobileSelect-savebtn').on('click', function (e) {
                 e.preventDefault();
                 that.syncR();
                 that.hide();
             });
-            this.$c.find('.mobileSelect-clearbtn').on('click', function(e) {
+            this.$c.find('.mobileSelect-clearbtn').on('click', function (e) {
                 e.preventDefault();
                 that.$listcontainer.find('.selected').removeClass('selected');
                 that.syncR();
                 that.hide();
             });
-            this.$c.find('.mobileSelect-cancelbtn').on('click', function(e) {
+            this.$c.find('.mobileSelect-cancelbtn').on('click', function (e) {
                 e.preventDefault();
                 that.hide();
             });
-            this.$c.find('.mobileSelect-control').on('click', function(e) {
+            this.$c.find('.mobileSelect-control').on('click', function (e) {
                 e.preventDefault();
                 var $this = $(this);
                 if (that.isMultiple) {
@@ -178,51 +218,73 @@ try {
                 }
             });
         },
-        _unbindEvents: function() {
-            console.log('unbind events');
+        _unbindEvents: function () {
+            
+            /*
+             * to unbind events while destroy.
+             */
             this.$triggerElement.unbind('click');
             this.$c.find('.mobileSelect-clearbtn').unbind('click');
             this.$c.find('.mobileSelect-cancelbtn').unbind('click');
             this.$c.find('.mobileSelect-control').unbind('click');
         },
-        sync: function() {
-            //sync from select element to mobile select container
+        sync: function () {
+            
+            /*
+             * sync from select element to mobile select container
+             */
             var selectedOptions = this.$e.val();
-            if (!this.isMultiple) selectedOptions = [selectedOptions];
+            if (!this.isMultiple)
+                selectedOptions = [selectedOptions];
             this.$c.find('a').removeClass('selected');
             for (var i in selectedOptions) {
                 this.$c.find('a[data-value="' + selectedOptions[i] + '"]').addClass('selected');
             }
         },
-        syncR: function() {
-            //sync from mobile select container to select element
+        syncR: function () {
+            
+            /*
+             * sync from mobile select container to select element
+             */
             var selectedOptions = [];
-            this.$c.find('.selected').each(function() {
+            this.$c.find('.selected').each(function () {
                 selectedOptions.push($(this).data('value'));
             });
             this.$e.val(selectedOptions);
         },
-        hide: function() {
+        hide: function () {
+            
+            /*
+             * hide animation with onClose callback
+             */
             this.$c.children('div').addClass('anim-' + this.animation);
             var that = this;
             this._updateBtnCount();
-            setTimeout(function() {
+            setTimeout(function () {
                 that.$c.hide();
                 $('body').removeClass('mobileSelect-noscroll');
                 that.onClose.apply(that.$e);
             }, this.animationSpeed);
         },
-        show: function() {
+        show: function () {
+            
+            /*
+             * show animation with onOpen callback
+             */
             this.$c.show();
             this.sync();
             $('body').addClass('mobileSelect-noscroll');
             var that = this;
-            setTimeout(function() {
+            setTimeout(function () {
                 that.$c.children('div').removeClass($.mobileSelect.animations.join(' '));
             }, 0);
             this.onOpen.apply(this.$e);
         },
-        _setUserOptions: function() {
+        _setUserOptions: function () {
+            
+            /*
+             * overwrite options with data-attributes if provided.
+             */
             this.isMultiple = this.$e.attr('multiple') ? true : false;
             if (this.$e.data('title') !== undefined) {
                 this.title = this.$e.data('title');
@@ -248,13 +310,17 @@ try {
             if (this.$e.data('theme') !== undefined) {
                 this.theme = this.$e.data('theme');
             }
-            if (this.animation == 'none') {
+            if (this.animation === 'none') {
                 this.animationSpeed = 0;
             }
         },
-        _extractOptions: function() {
+        _extractOptions: function () {
+            
+            /*
+             * Get options from the select element and store them in an array.
+             */
             var options = [];
-            $.each(this.$e.find('option'), function(i, a) {
+            $.each(this.$e.find('option'), function (i, a) {
                 if ($(this).text()) {
                     var label = $(this).parent().is('optgroup') ? $(this).parent().attr('label') : false;
                     options.push({
@@ -266,7 +332,14 @@ try {
             });
             this.options = options;
         },
-        destroy: function() {
+        destroy: function () {
+            
+            /*
+             * destroy the select
+             * unbind events
+             * remove triggerElement, container
+             * show the Native select
+             */
             this.$e.removeAttr('data-msid');
             this._unbindEvents();
             this.$triggerElement.remove();
@@ -274,19 +347,29 @@ try {
             this.$e.show();
             console.log('done ');
         },
-        refresh: function(){
-        	this._extractOptions();
-        	this._appendOptionsList();
-        	this._unbindEvents();
-        	this._bindEvents();
+        refresh: function () {
+            
+            /*
+             * refresh/sync the native select with the mobileSelect.
+             */
+            this._extractOptions();
+            this._appendOptionsList();
+            this._unbindEvents();
+            this._bindEvents();
         }
-    }
-    // object for user defaults.
+    };
+    
+    /*
+     * for user defaults.
+     */
     $.mobileSelect = {
         elements: {}, //to store records
         animations: ['anim-top', 'anim-bottom', 'anim-left', 'anim-right', 'anim-opacity', 'anim-scale', 'anim-zoom', 'anim-none'] //supported animations
     };
-    // plugin defaults.
+    
+    /*
+     * plugin defaults
+     */
     $.fn.mobileSelect.defaults = {
         template: '<div><div class="mobileSelect-title"></div><div class="list-container"></div><div class="mobileSelect-buttons"><a href="#" class="mobileSelect-savebtn"></a><a href="#" class="mobileSelect-clearbtn"></a><a href="#" class="mobileSelect-cancelbtn"></a></div></div>',
         title: 'Select an option',
@@ -302,8 +385,10 @@ try {
         animation: 'scale',
         animationSpeed: 400,
         theme: 'white',
-        onOpen: function() {},
-        onClose: function() {},
+        onOpen: function () {
+        },
+        onClose: function () {
+        },
         style: 'btn-default'
     };
 })(jQuery);
