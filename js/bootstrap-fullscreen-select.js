@@ -1,7 +1,7 @@
 'use strict';
-/*
+/*!
  * Bootstrap-fullscreen-select v1.5.1 (http://craftpip.github.io/bootstrap-fullscreen-select/)
- * Author: bonifacepereira
+ * Author: boniface pereira
  * Website: www.craftpip.com
  * Contact: hey@craftpip.com
  *
@@ -9,10 +9,8 @@
  * Licensed under MIT (https://github.com/craftpip/bootstrap-fullscreen-select/blob/master/LICENSE)
  */
 
-try {
-    jQuery;
-} catch (e) {
-    console.error('MobileSelect\'s javascript requires jQuery');
+if (typeof jQuery === 'undefined') {
+    throw new Error('Mobileselect\' requires jQuery');
 }
 
 (function ($) {

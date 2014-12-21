@@ -11,46 +11,52 @@
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         
+        <meta name="description" content="Custom fullscreen select for mobile devices.">
+        <link rel="canonical" href="https://craftpip.github.com/" />
+        <link rel="icon" type="img/ico" href="http://craftpip.com/assets/img/logo.png">
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+        <meta name="robots" content="index,follow,noodp,noydir"/>
+        <meta name="google-site-verification" content="T_M_Ym5DQ-cEQQhx_jswyCBTssIdgtewICcvb3sgh8g" />
+        <!--<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> -->
+        <!-- <meta property="fb:profile_id" content="350437395056145" />
+        <meta property="fb:admins" content="100000226762279"/> -->
+        <meta name="Keywords" content="bootstrap fullscreen select, fullscreen select, bootstrap select, phonegap select, cordova select" />
 
-<meta name="description" content="Custom fullscreen select for mobile devices.">
-<link rel="canonical" href="https://craftpip.github.com/" />
-<link rel="icon" type="img/ico" href="http://craftpip.com/assets/img/logo.png">
-<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
-<meta name="robots" content="index,follow,noodp,noydir"/>
-<meta name="google-site-verification" content="T_M_Ym5DQ-cEQQhx_jswyCBTssIdgtewICcvb3sgh8g" />
-<!--<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> -->
-<!-- <meta property="fb:profile_id" content="350437395056145" />
-<meta property="fb:admins" content="100000226762279"/> -->
-<meta name="Keywords" content="bootstrap fullscreen select, fullscreen select, bootstrap select, phonegap select, cordova select" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://craftpip.com/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://craftpip.com/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://craftpip.com/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://craftpip.com/apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" href="http://craftpip.com/apple-touch-icon-57x57.png" />
 
-<link rel="apple-touch-icon" sizes="57x57" href="http://craftpip.com/apple-touch-icon-57x57.png" />
-<link rel="apple-touch-icon" sizes="72x72" href="http://craftpip.com/apple-touch-icon-72x72.png" />
-<link rel="apple-touch-icon" sizes="114x114" href="http://craftpip.com/apple-touch-icon-114x114.png" />
-<link rel="apple-touch-icon" sizes="144x144" href="http://craftpip.com/apple-touch-icon-144x144.png" />
-<link rel="apple-touch-icon" href="http://craftpip.com/apple-touch-icon-57x57.png" />
-
-<meta property="og:title" content="Bootstrap-fullscreen-select by craftpip" />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="http://craftpip.com/assets/img/logo.png" />
-<meta property="og:url" content="https://craftpip.github.com/" />
-<meta property="og:description" content="Custom fullscreen select for mobile devices." />
-<meta property="og:site_name" content="craftpip.github.com" />
-
+        <meta property="og:title" content="Bootstrap-fullscreen-select by craftpip" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="http://craftpip.com/assets/img/logo.png" />
+        <meta property="og:url" content="https://craftpip.github.com/" />
+        <meta property="og:description" content="Custom fullscreen select for mobile devices." />
+        <meta property="og:site_name" content="craftpip.github.com" />
 
         <link rel="stylesheet" href="demo/libs/bootstrap.min.css">
         <link rel="stylesheet" href="demo/libs/bootstrap-theme.min.css">
         <link rel="stylesheet" href="demo/libs/font-awesome.min.css">
         <link rel="stylesheet" href="demo/libs/default.min.css">
         <link rel="stylesheet" href="demo/demo.min.css">
+
         <script src="demo/libs/jquery.min.js"></script>
         <script src="demo/libs/bootstrap.min.js"></script>
         <script src="demo/libs/pretty.js"></script>
         
-        <!-- bootstrapSelect files -->
+        <!-- BOOTSTRAP-FULLSCREEN-SELECT files -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap-fullscreen-select.css" />
         <script type="text/javascript" src="js/bootstrap-fullscreen-select.js"></script>
-        <!--END bootstrapSelect files-->
-        
+        <!--END BOOTSTRAP-FULLSCREEN-SELECT files-->
+
+        <style type="text/css">
+        body{
+            font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+        }
+        </style>
+
+
     </head>
     <body>
         <div style="height: 15px"></div>
@@ -73,32 +79,32 @@
                             </div>
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
-                                    <li class="dropdown">
-                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CONTENTS <span class="caret"></span></a>
-                                      <ul class="dropdown-menu" role="menu">
-
-                                        <li><a class="gotoSmooth" href="#introduction"><i class="fa fa-circle-o fa-fw"></i> Introduction</a></li>
-                                        <li><a class="gotoSmooth" href="#usage"><i class="fa fa-circle-o fa-fw"></i> Usage</a></li>
-                                        <li><a class="gotoSmooth" href="#examples"><i class="fa fa-circle-o fa-fw"></i> Examples</a></li>
-                                        <li><a class="gotoSmooth" href="#buttonstyles"><i class="fa fa-circle-o fa-fw"></i> Button Styles</a></li>
-                                        <li><a class="gotoSmooth" href="#themes"><i class="fa fa-circle-o fa-fw"></i> Themes</a></li>
-                                        <li><a class="gotoSmooth" href="#titles"><i class="fa fa-circle-o fa-fw"></i> Titles</a></li>
-                                        <li><a class="gotoSmooth" href="#padding"><i class="fa fa-circle-o fa-fw"></i> Padding</a></li>
-                                        <li><a class="gotoSmooth" href="#animations"><i class="fa fa-circle-o fa-fw"></i> Animations</a></li>
-                                        <li><a class="gotoSmooth" href="#animationspeeds"><i class="fa fa-circle-o fa-fw"></i> Animation speeds</a></li>
-                                        <li><a class="gotoSmooth" href="#buttontext"><i class="fa fa-circle-o fa-fw"></i> Button Text</a></li>
-                                        <li><a class="gotoSmooth" href="#triggeron"><i class="fa fa-circle-o fa-fw"></i> Trigger on</a></li>
-                                        <li><a class="gotoSmooth" href="#callbacks"><i class="fa fa-circle-o fa-fw"></i> Callbacks</a></li>
-                                        <li><a class="gotoSmooth" href="#globals"><i class="fa fa-circle-o fa-fw"></i> Setting globals</a></li>
-                                        <li><a class="gotoSmooth" href="#options"><i class="fa fa-circle-o fa-fw"></i> Options</a></li>
-                                        <li><a class="gotoSmooth" href="#methods"><i class="fa fa-circle-o fa-fw"></i> Methods</a></li>
-                                      </ul>
-                                    </li>
-                                </ul>
-                                <ul class="nav navbar-nav pull-right">
-                                    <li class=""><a href="http://github.com/craftpip"><i class="fa fa-github"></i> GITHUB HOME</a></li>
+                                    <li class=""><a href="http://github.com/craftpip"><i class="fa fa-github fa-fw"></i> GITHUB HOME</a></li>
                                     <li class=""><a href="http://github.com/craftpip/bootstrap-fullscreen-select">PROJECT PAGE</a></li>
                                     <li class=""><a href="http://craftpip.com/#/contact">CONTACT</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-bars fa-fw"></i> CONTENTS <span class="caret"></span></a>
+                                      <ul class="dropdown-menu" role="menu">
+
+                                        <li><a class="gotoSmooth" href="#introduction">Introduction</a></li>
+                                        <li><a class="gotoSmooth" href="#usage">Usage</a></li>
+                                        <li><a class="gotoSmooth" href="#examples">Examples</a></li>
+                                        <li><a class="gotoSmooth" href="#buttonstyles">Button Styles</a></li>
+                                        <li><a class="gotoSmooth" href="#themes">Themes</a></li>
+                                        <li><a class="gotoSmooth" href="#titles">Titles</a></li>
+                                        <li><a class="gotoSmooth" href="#padding">Padding</a></li>
+                                        <li><a class="gotoSmooth" href="#animations">Animations</a></li>
+                                        <li><a class="gotoSmooth" href="#animationspeeds">Animation speeds</a></li>
+                                        <li><a class="gotoSmooth" href="#buttontext">Button Text</a></li>
+                                        <li><a class="gotoSmooth" href="#triggeron">Trigger on</a></li>
+                                        <li><a class="gotoSmooth" href="#callbacks">Callbacks</a></li>
+                                        <li><a class="gotoSmooth" href="#globals">Setting globals</a></li>
+                                        <li><a class="gotoSmooth" href="#options">Options</a></li>
+                                        <li><a class="gotoSmooth" href="#methods">Methods</a></li>
+                                      </ul>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -129,15 +135,18 @@
                                     </a>
                                 </div>
                                 <div class="spacer15"></div>
-                                <div class="panel panel-default">
+                                <div class="panel panel-default" style="margin-bottom: 10px">
                                     <div class="list-group">
                                         <a class="list-group-item gotoSmooth" href="#introduction"><i class="fa fa-circle-o fa-fw"></i> Introduction</a>
                                         <a class="list-group-item gotoSmooth" href="#usage"><i class="fa fa-circle-o fa-fw"></i> Usage</a>
                                         <a class="list-group-item gotoSmooth" href="#examples"><i class="fa fa-circle-o fa-fw"></i> Examples</a>
+                                        <a class="list-group-item gotoSmooth" href="#themes"><i class="fa fa-circle-o fa-fw"></i> Themes</a>
                                         <a class="list-group-item gotoSmooth" href="#options"><i class="fa fa-circle-o fa-fw"></i> Options</a>
-                                        <a class="list-group-item gotoSmooth" href="#methods"><i class="fa fa-circle-o fa-fw"></i> Methods</a>
                                     </div>
                                 </div>
+                                <p class="text-right">
+                                    <code>version 1.5.1</code>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -148,18 +157,127 @@
 
                 <!-- introduction -->
 
-
-
                     <section id="introduction">
                         <header>
-                            <h1 style="margin-top:0px;">bootstrap-fullscreen-select</h1>
+                            <h1 style="margin-top: 0px;">
+                                bootstrap-fullscreen-select
+                            </h1>
                             <p>
-                                A custom select for @twitter bootstrap. <br>
-                                unlike others, this plugin provides a fullscreen select feature, that is trigger via a custom defined element.<br>
+                                <strong>What the heck is this?</strong>
+                                <br>
+                                A powerful <code>SELECT</code> for your Web app, mobile UI, cordova/phoneGap project.<br>
+                                This plugin makes it super easy for a user to use the 'select' on small touch screen devices.
                             </p>
                             <p>
-                                <i class="fa fa-circle-o"></i> Designed for Mobile UI, when it is not practical to use a dropdown select on a small display.
+                                <strong>Why use this?</strong>
+                                <br>
+                                <ul>
+                                    <li><em>Full functionality</em> of a native html select.</li>
+                                    <li>3 OS suited themes (white, holo, mac).</li>
+                                    <li>8 graceful in and out animations.</li>
+                                    <li>Custom titles and button text.</li>
+                                    <li>Customizable button colors.</li>
+                                    <li>CSS3 animations.</li>
+                                    <li>onOpen &amp; onClose callbacks</li>
+                                    <li>Tested reliable code.</li>
+                                </ul>
                             </p>
+                            <p>
+                                <strong>Feature Showcase</strong>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <p>Theme (white)</p>
+                                        <select class="mobileSelect">
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                            <option>Option 3</option>
+                                            <option>Option 4</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p>Theme (holo)</p>
+                                        <select class="mobileSelect" data-theme="holo">
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                            <option>Option 3</option>
+                                            <option>Option 4</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p>Theme (mac)</p>
+                                        <select class="mobileSelect" data-theme="mac">
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                            <option>Option 3</option>
+                                            <option>Option 4</option>
+                                        </select>
+                                    </div>
+                                    <div class="row">
+                                    <div class="col-md-3">
+                                        <p>Animations (opacity)</p>
+                                        <select class="mobileSelectCALLBACKexample">
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                            <option>Option 3</option>
+                                            <option>Option 4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                $(function(){
+                                    $('.mobileSelectCALLBACKexample').mobileSelect({
+                                        onOpen: function(){
+                                            alert('do something when it opens');
+                                        },
+                                        onClose: function(){
+                                            alert('do something else when it closes');
+                                        }
+                                    });
+                                })
+                                </script>
+                                </div>
+                                <div style="height: 10px;"></div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <p>No animations</p>
+                                        <select class="mobileSelect" data-animation="none">
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                            <option>Option 3</option>
+                                            <option>Option 4</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p>Animation (zoom)</p>
+                                        <select class="mobileSelect" data-animation="zoom">
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                            <option>Option 3</option>
+                                            <option>Option 4</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p>Animations (bottom)</p>
+                                        <select class="mobileSelect" data-animation="bottom">
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                            <option>Option 3</option>
+                                            <option>Option 4</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p>Animations (opacity)</p>
+                                        <select class="mobileSelect" data-animation="opacity">
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                            <option>Option 3</option>
+                                            <option>Option 4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                            </p>
+
                         </header>
                     </section>
 
@@ -169,6 +287,17 @@
 
                     <section id="usage">
                         <h1>Usage</h1>
+                        <p>
+                            Dependencies:
+                            <ul>
+                                <li>
+                                    Bootstrap by Twitter <a href="http://www.getbootstrap.com" target="_emptyb">[link]</a>
+                                </li>
+                                <li>
+                                    jQuery library <a href="http://www.jquery.com/download" target="_emptyj">[link]</a>
+                                </li>
+                            </ul>
+                        </p>
                         <p>Create your <code>&lt;select&gt;</code> with the <code>.mobileSelect</code> class.</p>
                         <pre class="prettyprint linenums"><code class="html">&lt;select class="form-control mobileSelect" &gt;
     &lt;option value="pizza"&gt;Pizza&lt;/option&gt;
@@ -239,6 +368,108 @@
 </code></pre>
 
                         </div>
+                        <h3>OPTION GROUPS</h3>
+                        <div class="section">
+                            <span >before: </span> <br>
+                            <select class="" multiple>
+                                <optgroup label="group1">
+                                    <option value="pizza" >Pizza</option>
+                                    <option value="burger">Burger</option>
+                                    <option value="tacos">Tacos</option>
+                                </optgroup>
+                                <optgroup label="group2">
+                                    <option value="garlic-bread">Garlic Bread</option>
+                                </optgroup>
+                            </select> <br>
+                            <span>After: </span><br>
+                            <select class="form-control mobileSelect" multiple>
+                                <optgroup label="group1">
+                                    <option value="pizza" >Pizza</option>
+                                    <option value="burger">Burger</option>
+                                    <option value="tacos">Tacos</option>
+                                </optgroup>
+                                <optgroup label="group2">
+                                    <option value="garlic-bread">Garlic Bread</option>
+                                </optgroup>
+                            </select>
+
+                            <h4>code</h4>
+                            <pre  class="prettyprint linenums"><code class="html">&lt;select class="form-control mobileSelect" multiple&gt;
+    &lt;optgroup label="group1"&gt;
+        &lt;option value="pizza" &gt;Pizza&lt;/option&gt;
+        &lt;option value="burger"&gt;Burger&lt;/option&gt;
+        &lt;option value="tacos"&gt;Tacos&lt;/option&gt;
+    &lt;/optgroup&gt;
+    &lt;optgroup label="group2"&gt;
+        &lt;option value="garlic-bread"&gt;Garlic Bread&lt;/option&gt;
+    &lt;/optgroup&gt;
+&lt;/select&gt;
+</code></pre>
+                        </div>
+                        <h3>DISABLED ITEMS</h3>
+                        <div class="section">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p>Disabled select</p>
+                                    <select class="form-control mobileSelect" disabled>
+                                        <option value="pizza" >Pizza</option>
+                                        <option value="burger">Burger</option>
+                                        <option value="tacos">Tacos</option>
+                                        <option value="garlic-bread">Garlic Bread</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>Disabled groups</p>
+                                    <select class="form-control mobileSelect">
+                                        <optgroup label="group1" disabled>
+                                            <option value="pizza" >Pizza</option>
+                                            <option value="burger">Burger</option>
+                                            <option value="tacos">Tacos</option>
+                                        </optgroup>
+                                        <optgroup label="group2">
+                                            <option value="garlic-bread">Garlic Bread</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>Disabled options</p>
+                                    <select class="form-control mobileSelect">
+                                        <option value="pizza"  disabled>Pizza</option>
+                                        <option value="burger" disabled>Burger</option>
+                                        <option value="tacos">Tacos</option>
+                                        <option value="garlic-bread">Garlic Bread</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <h4>code</h4>
+                            <pre  class="prettyprint linenums"><code class="html">&lt;select class="form-control mobileSelect"  disabled&gt;
+    &lt;option value="pizza" &gt;Pizza&lt;/option&gt;
+    &lt;option value="burger"&gt;Burger&lt;/option&gt;
+    &lt;option value="tacos"&gt;Tacos&lt;/option&gt;
+    &lt;option value="garlic-bread"&gt;Garlic Bread&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;select class="form-control mobileSelect" &gt;
+    &lt;optgroup label="group1" disabled&gt;
+        ...
+    &lt;/optgroup&gt;
+    &lt;optgroup label="group2"&gt;
+        ...
+    &lt;/optgroup&gt;
+&lt;/select&gt;
+
+&lt;select class="form-control mobileSelect" &gt;
+    &lt;option value="pizza" disabled&gt;Pizza&lt;/option&gt;
+    &lt;option value="burger" disabled&gt;Burger&lt;/option&gt;
+    &lt;option value="tacos"&gt;Tacos&lt;/option&gt;
+    &lt;option value="garlic-bread"&gt;Garlic Bread&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+                        </div>
+
+
+
                         <h3 id="buttonstyles">BUTTON STYLES</h3>
                         <div class="section">
                             <select class="form-control mobileSelect">
@@ -356,9 +587,8 @@
 
                         </div>
 
-                        <h3 id="morecustoms">EVEN MORE CUSTOMS</h3>
+                        <h3 id="titles">CUSTOM TITLES</h3>
                         <div class="section">
-                            <h4 id="titles"><kbd class="blue">CUSTOM TITLES</kbd></h4>
                             <p>You can specify a title for a select element, while initializing or individually set it in data-attributes.</p>
                             <select class="form-control mobileSelect" data-theme="white" data-title="SUP? BUDDY">
                                 <option value="pizza">Pizza</option>
@@ -377,22 +607,41 @@
     title: 'For all selected selects'
 });
 </code></pre>
-                            <h4 id="padding"><kbd class="blue">PADDING</kbd></h4>
+                        </div>
+                        <h3 id="padding">PADDING</h3>
+                        <div class="section">
                             <p>Position the elements as you need. supply a JSON object to the data-padding attribute like so.</p>
-                            <select class="form-control mobileSelect" data-title="I capture your screen" data-padding='{"top": "0px", "bottom": "0px", "right": "0px", "left":"0px"}'>
-                                <option value="pizza">Pizza</option>
-                                <option value="burger">Burger</option>
-                                <option value="tacos">Tacos</option>
-                                <option value="garlic-bread">Garlic Bread</option>
-                            </select>
-                            <br>
-                            <select class="form-control mobileSelect" data-title="Left and Right spacing" data-padding='{"top": "0px", "bottom": "0px", "right": "30px", "left":"30px"}'>
-                                <option value="pizza">Pizza</option>
-                                <option value="burger">Burger</option>
-                                <option value="tacos">Tacos</option>
-                                <option value="garlic-bread">Garlic Bread</option>
-                            </select>
 
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p>With zero padding</p>
+                                    <select class="form-control mobileSelect" data-title="I capture your screen" data-padding='{"top": "0px", "bottom": "0px", "right": "0px", "left":"0px"}'>
+                                        <option value="pizza">Pizza</option>
+                                        <option value="burger">Burger</option>
+                                        <option value="tacos">Tacos</option>
+                                        <option value="garlic-bread">Garlic Bread</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>With left and right padding of 30px</p>
+                                    <select class="form-control mobileSelect" data-title="Left and Right spacing" data-padding='{"top": "0px", "bottom": "0px", "right": "30px", "left":"30px"}'>
+                                        <option value="pizza">Pizza</option>
+                                        <option value="burger">Burger</option>
+                                        <option value="tacos">Tacos</option>
+                                        <option value="garlic-bread">Garlic Bread</option>
+                                    </select>                                    
+                                </div>
+                                <div class="col-md-4">
+                                    <p>With Top and Bottom padding of 30px</p>
+                                    <select class="form-control mobileSelect" data-title="Left and Right spacing" data-padding='{"top": "30px", "bottom": "30px", "right": "0px", "left":"0px"}'>
+                                        <option value="pizza">Pizza</option>
+                                        <option value="burger">Burger</option>
+                                        <option value="tacos">Tacos</option>
+                                        <option value="garlic-bread">Garlic Bread</option>
+                                    </select>                                    
+                                </div>
+                            </div>
+                            
                             <h4>code</h4>
                             <pre  class="prettyprint linenums"><code>&lt;select class="form-control mobileSelect" data-title="I capture your screen" data-padding='{"top": "0px", "bottom": "0px", "right": "0px", "left":"0px"}'&gt;
     ...
@@ -411,7 +660,9 @@
     }
 });
 </code></pre>
-                            <h4 id="animations"><kbd class="blue">ANIMATIONS!</kbd></h4>
+                            </div>
+                            <h3 id="animations">ANIMATIONS!</h3>
+                            <div class="section">
                             <p>mobileSelect provides basic animations like, <code>'scale', 'zoom', 'top', 'bottom', 'left', 'right', 'opacity' &amp; 'none'</code></p>
                             <div class="row">
                                 <div class="col-md-3">
@@ -523,9 +774,11 @@
     animation: 'zoom'
 });
 </code></pre>
-                            <h4 id="animationspeeds"><kbd class="blue">ANIMATION SPEEDS</kbd></h4>
+                            </div>
+                            <h3 id="animationspeeds">ANIMATION SPEED</h3>
+                            <div class="section">
                             <p>Adjust the speed of the open close animation. <code>setting it to 10000 miliseconds i.e. 10 seconds</code></p>
-                            <select class="form-control mobileSelect" data-animationSpeed="10000">
+                            <select class="form-control mobileSelect" data-animation-speed="5000">
                                 <option value="pizza">Pizza</option>
                                 <option value="burger">Burger</option>
                                 <option value="tacos">Tacos</option>
@@ -533,7 +786,7 @@
                             </select>
 
                             <h4>code</h4>
-                            <pre  class="prettyprint linenums"><code>&lt;select class="form-control mobileSelect" data-animationSpeed='10000'&gt;
+                            <pre  class="prettyprint linenums"><code>&lt;select class="form-control mobileSelect" data-animationSpeed='5000'&gt;
     ...
 &lt;/select&gt;
 </code></pre>
@@ -542,7 +795,9 @@
     animationSpeed: 10000
 });
 </code></pre>
-                            <h4 id="buttontext"><kbd class="blue">BUTTON TEXT</kbd></h4>
+                        </div>
+                        <h3 id="buttontext">BUTTON TEXT</h3>
+                        <div class="section">
                             <p>Change default button text on the select.</p>
                             <select class="form-control mobileSelect" data-btntext-save="Save this man!" data-btntext-cancel="Nevermind!" data-btntext-clear="Clear it out." multiple>
                                 <option value="pizza">Pizza</option>
@@ -565,13 +820,15 @@
     },
 });
 </code></pre>
-                            <h4 id="triggeron"><kbd class="blue">TRIGGER ON</kbd></h4>
+                        </div>
+                            <h3 id="triggeron">TRIGGER ON</h3>
+                        <div class="section">
                             <p>
                                 At times, you do not want the plugin generated select. instead you have a custom <code>div</code> on which the <code>Select</code> should trigger.<br>
                                 This is common while developing on phonegap/cordova.
                             </p>
 
-                            <select class="form-control mobileSelect" data-triggerOn="#customdiv">
+                            <select class="mobileSelect" data-triggerOn="#customdiv">
                                 <option value="pizza">Pizza</option>
                                 <option value="burger">Burger</option>
                                 <option value="tacos">Tacos</option>
@@ -637,18 +894,16 @@
 </script>
                         </div>
 
-                        <h3 id="globals">GLOBAL DEFAULTS</h3>
+                        <h2 id="globals">GLOBAL DEFAULTS</h2>
                         <div class="section">
                             <p>You can overwrite Global Defaults for mobileSelect.<br>
                                 here are list of options available.
                             </p>
                             <pre class="prettyprint linenums"><code>$.mobileSelect.defaults = {
     title: 'Select an option',
-    buttonsText: {
-        save: 'Save',
-        clear: 'Clear',
-        cancel: 'Cancel'
-    },
+    buttonSave: 'Save',
+    buttonClear: 'Clear',
+    buttonCancel: 'Cancel',
     padding: {
         'top': '20px',
         'left': '20px',
@@ -666,7 +921,7 @@
 };</code></pre>
                         </div>
 
-                        <h3 id="options">OPTIONS</h3>
+                        <h2 id="options">OPTIONS</h2>
                         <div class="section">
                             <p>options can be passed via data-attributes or while initialization.</p>
                             <table class="table table-bordered table-striped">
@@ -683,27 +938,41 @@
                                     <td>displays on the top of mobileSelect modal.</td>
                                 </tr>
                                 <tr>
-                                    <td>buttonText</td>
-                                    <td>object</td>
+                                    <td>buttonSave</td>
+                                    <td>String</td>
                                     <td>
-<pre>{
-    save: 'Save',
-    clear: 'Clear',
-    cancel: 'Cancel'
-}
-</pre>
+                                    Save
                                     </td>
-                                    <td>Button text that is displayed to user on the modal.</td>
+                                    <td>Save button displayed on the modal.</td>
+                                </tr>
+                                <tr>
+                                    <td>buttonClear</td>
+                                    <td>String</td>
+                                    <td>
+                                    Clear
+                                    </td>
+                                    <td>
+                                        Clear button displayed on the modal.
+                                        <p class="text-success">is visible only for multiple select elements.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>buttonCancel</td>
+                                    <td>String</td>
+                                    <td>
+                                    Cancel
+                                    </td>
+                                    <td>Cancel button displayed on the modal.</td>
                                 </tr>
                                 <tr>
                                     <td>padding</td>
                                     <td>object</td>
                                     <td>
 <pre>{
-    top: '20px',
-    left: '20px',
-    right: '20px',
-    bottom: '20px'
+top: '20px',
+left: '20px',
+right: '20px',
+bottom: '20px'
 }
 </pre>
                                     </td>
@@ -761,36 +1030,117 @@
                         </div>
 
 
-                        <h3 id="methods">METHODS</h3>
+                        <h2 id="methods">METHODS</h2>
                         <div class="section">
 
                             <h4>show()</h4>
-                            <p>display the Selection dialog programmically with the show method.</p>
+                            <p>Display the Selection dialog programmically with the show method.</p>
+
+                            <select class="mobileSelect" id="exampleShow">
+                                <option>option 1</option>
+                                <option>option 2</option>
+                                <option>option 3</option>
+                            </select>
+                            <button class="btn btn-primary" onclick="$('#exampleShow').mobileSelect('show')">open it</button>
+                            <div style="height: 10px;"></div>
+<pre class="prettyprint linenums"><code>&lt;select class="mobileSelect" id="exampleShow"&gt;
+    &lt;option&gt;option 1&lt;/option&gt;
+    &lt;option&gt;option 2&lt;/option&gt;
+    &lt;option&gt;option 3&lt;/option&gt;
+&lt;/select&gt;
+&lt;button class="btn btn-primary" onclick="$('#exampleShow').mobileSelect('show')"&gt;open it&lt;/button&gt;
+</code></pre>
 <pre class="prettyprint linenums"><code>$('.mobileSelect').mobileSelect('show');
-// note: you have to limit selected elements to "1". Use <strong>.eq(n)</strong> to do this.
+// NOTE: limit selected elements to "1". You may use <strong>.eq(n)</strong> to do this.
 </code></pre>
 
                             <h4>hide()</h4>
-                            <p>hide the Selection dialog programmically with the hide method.</p>
+                            <p>Hide the Selection dialog programmically with the hide method.</p>
+
 <pre class="prettyprint linenums"><code>$('.mobileSelect').mobileSelect('hide');
-// note: you have to limit selected elements to "1". Use <strong>.eq(n)</strong> to do this.
+// NOTE: limit selected elements to "1". You may use <strong>.eq(n)</strong> to do this.
 </code></pre>
 
-                            <h4>sync()</h4>
+                            <h4>sync() or refresh()</h4>
                             <p>After programmically altering your select element, call the <code>sync</code> method to refresh data.</p>
-<pre class="prettyprint linenums"><code>$('.mobileSelect').mobileSelect('sync')
-// or
-$('.mobileSelect').mobileSelect('refresh') // alias
-</code></pre>
-                            <p><kbd>or</kbd> sync all the initialized mobileSelect elements at once.</p>
-<pre class="prettyprint linenums"><code>mobileSelect.sync()</code></pre>
 
+
+                            <select class="mobileSelect" id="exampleRefresh">
+                                <option value="pizza">pizza</option>
+                                <option value="burger">burger</option>
+                            </select>
+                            <div style="height: 10px;"></div>
+                            <button class="btn btn-primary addTacos">append Tacos</button>
+                            <button class="btn btn-primary addGarlicBread">append Garlic bread</button>
+                            <button class="btn btn-danger removeTacos">remove Tacos</button>
+                            <button class="btn btn-danger removeGarlicBread">remove Garlic bread</button>
+                            <div style="height: 10px"></div>
+                            <p class="text-danger"><i class="fa fa-warning"></i> Appending options with same value multiple times will cause problems</p>
+                            <script type="text/javascript">
+                            $('.addTacos').click(function(){
+                                $('#exampleRefresh').append('<option value="tacos">Tacos</option>');
+                                $('#exampleRefresh').mobileSelect('refresh');
+                            });
+                            $('.addGarlicBread').click(function(){
+                                $('#exampleRefresh').append('<option value="garlic-bread">Garlic bread</option>');
+                                $('#exampleRefresh').mobileSelect('refresh');
+                            });
+                            $('.removeTacos').click(function(){
+                                $('#exampleRefresh option[value="tacos"]').remove();
+                                $('#exampleRefresh').mobileSelect('refresh');
+                            });
+                            $('.removeGarlicBread').click(function(){
+                                $('#exampleRefresh option[value="garlic-bread"]').remove();
+                                $('#exampleRefresh').mobileSelect('refresh');
+                            });
+                            </script>
+
+<pre class="prettyprint linenums"><code>$('.addTacos').click(function(){
+    $('#exampleRefresh').append('&lt;option value="tacos"&gt;tacos&lt;/option&gt;');
+    $('#exampleRefresh').mobileSelect('refresh');
+});
+$('.addGarlicBread').click(function(){
+    $('#exampleRefresh').append('&lt;option value="garlic-bread"&gt;Garlic bread&lt;/option&gt;');
+    $('#exampleRefresh').mobileSelect('refresh');
+});
+$('.removeTacos').click(function(){
+    $('#exampleRefresh option[value="tacos"]').remove();
+    $('#exampleRefresh').mobileSelect('refresh');
+});
+$('.removeGarlicBread').click(function(){
+    $('#exampleRefresh option[value="garlic-bread"]').remove();
+    $('#exampleRefresh').mobileSelect('refresh');
+});
+
+</code></pre>
 
                             <h4>destroy()</h4>
                             <p>to remove(destroy) the mobileSelect plugin initializations for selected elements.</p>
-<pre class="prettyprint linenums"><code>$('.mobileSelect').mobileSelect('destroy')</code></pre>
-                            <p><kbd>or</kbd> alternatively you can destroy <strong>ALL</strong> mobileSelect initializations.</p>
-<pre class="prettyprint linenums"><code>mobileSelect.destroy()</code></pre>
+                            <button class="btn btn-danger destroythemall">Destroy all mobileSelect elements</button>
+                            <button class="btn btn-success initializeAgain">Re initialize all mobileSelect elements</button>
+                            <div style="height:10px;"></div>
+                            <p class="text-danger"><i class="fa fa-warning"></i> keep an eye on the console for errors when u initialize the initialized elements</p>
+<pre class="prettyprint linenums"><code>&lt;button class="btn btn-primary destroythemall"&gt;Destroy all mobileSelect elements&lt;/button&gt;
+&lt;button class="btn btn-primary initializeAgain"&gt;Re initialize all mobileSelect elements&lt;/button&gt;
+</code></pre>
+
+<script type="text/javascript">
+    $('.destroythemall').click(function(){
+        $('.mobileSelect').mobileSelect('destroy');
+    });
+    $('.initializeAgain').click(function(){
+        $('.mobileSelect').mobileSelect();
+    });
+</script>
+<pre class="prettyprint linenums"><code>$('.destroythemall').click(function(){
+    $('.mobileSelect').mobileSelect('destroy');
+});
+$('.initializeAgain').click(function(){
+    $('.mobileSelect').mobileSelect();
+});
+</code></pre>
+
+
                         </div>
                     </section>
                     <section>
@@ -804,12 +1154,11 @@ $('.mobileSelect').mobileSelect('refresh') // alias
         <script type="text/javascript">
             $(function () {
                 $('.mobileSelect').mobileSelect();
-            })
+            });
         </script>
 
         <script type="text/javascript" src="demo/demo.min.js"></script> 
         <!-- javascript for the demo page interface. -->
-
     </body>
 
 </html>
