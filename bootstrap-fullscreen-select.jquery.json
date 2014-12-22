@@ -1,7 +1,7 @@
 {
     "name": "bootstrap-fullscreen-select",
     "title": "bootstrap-fullscreen-select",
-    "description": "A jQuery responsive touch carousel",
+    "description": "bootstrap select for mobile devices, originally made for select controls in Cordova/PhoneGap mobile applications",
     "keywords": [
         "select",
         "responsive",
