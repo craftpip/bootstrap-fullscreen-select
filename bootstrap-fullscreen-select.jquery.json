@@ -1,0 +1,35 @@
+{
+    "name": "bootstrap-fullscreen-select",
+    "title": "bootstrap-fullscreen-select",
+    "description": "bootstrap select for mobile devices, originally made for select controls in Cordova/PhoneGap mobile applications",
+    "keywords": [
+        "select",
+        "responsive",
+        "fullscreen",
+        "bootstrap",
+        "mobile"
+    ],
+    "version": "1.5.1",
+    "author": {
+        "name": "Boniface Pereira",
+        "url": "http://craftpip.github.io"
+    },
+    "maintainers": [{
+        "name": "Boniface Pereira",
+        "email": "hey@craftpip.com",
+        "url": "http://www.craftpip.com"
+    }],
+    "licenses": [{
+        "type": "MIT",
+        "url": "https://github.com/craftpip/bootstrap-fullscreen-select/blob/master/LICENSE"
+    }],
+    "demo": "http://craftpip.github.io/bootstrap-fullscreen-select",
+    "bugs": "https://github.com/kenwheeler/slick/issues",
+    "homepage": "https://github.com/craftpip/bootstrap-fullscreen-select",
+    "docs": "http://craftpip.github.io/bootstrap-fullscreen-select",
+    "download": "https://github.com/craftpip/bootstrap-fullscreen-select/archive/master.zip",
+    "dependencies": {
+        "jquery": ">=1.7",
+        "bootstrap": ">=2"
+    }
+}
