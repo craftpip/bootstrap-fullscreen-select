@@ -114,7 +114,7 @@ if (typeof jQuery === 'undefined') {
                 }
                 
                 var b = this.$e.attr('disabled') || '';
-                this.$e.before('<button class="btn ' + this.style + ' btn-mobileSelect-gen" '+b+'><span class="text"></span> <span class="caret"></span></button>');
+                this.$e.before('<button type="button" class="btn ' + this.style + ' btn-mobileSelect-gen" '+b+'><span class="text"></span> <span class="caret"></span></button>');
                 this.$triggerElement = this.$e.prev();
                 this.$e.hide();
             } else {
