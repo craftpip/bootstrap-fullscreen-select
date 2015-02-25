@@ -203,7 +203,8 @@ if (typeof jQuery === 'undefined') {
              * binding events on trigger element & buttons.
              */
             var that = this;
-            this.$triggerElement.on('click', function () {
+            this.$triggerElement.on('click', function (e) {
+                e.preventDefault();
                 that.show();
             });
             this.$c.find('.mobileSelect-savebtn').on('click', function (e) {
