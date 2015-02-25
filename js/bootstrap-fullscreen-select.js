@@ -182,7 +182,7 @@ if (typeof jQuery === 'undefined') {
              */
             if (this.$triggerElement.is('button') && this.$triggerElement.hasClass('btn-mobileSelect-gen')) {
                 var a = this.$triggerElement.find('.text'),
-                        b = this.$e.val();
+                        b = this.$triggerElement.next().find('option:selected').text() || this.$e.val();
                 if (b === null) {
                     a.html('Nothing selected');
                     return false;
