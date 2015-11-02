@@ -182,19 +182,38 @@ if (typeof jQuery === 'undefined') {
              */
             if (this.$triggerElement.is('button') && this.$triggerElement.hasClass('btn-mobileSelect-gen')) {
                 var a = this.$triggerElement.find('.text'),
-                        b = this.$triggerElement.next().find('option:selected').text() || this.$e.val();
-                if (b === null) {
-                    a.html('Nothing selected');
+                    b = this.$triggerElement.next().find('option:selected').text() || this.$e.val(), 
+                    c = this.$e.attr('data-btntitle'),
+                    d = this.$e.attr('data-selected');
+
+                if (b === null && c === undefined) {
+                    a.html("Nothing selected");
                     return false;
                 }
+                if (b === null) {
+                    a.html(c);
+                    return false;
+                }
+
+
                 if (this.isMultiple) {
                     if (b.length === 1) {
                         a.html(b);
                     } else {
-                        a.html(b.length + ' items selected');
+                        if(d === undefined){
+                            a.html(b.length + ' items selected');
+                        }else{
+                            a.html(b.length + ' ' + d);
+                        }
                     }
                 } else {
-                    a.html(b);
+
+                    if (c === undefined) {
+                        a.html(b);
+                    }else{
+                        a.html(c);
+                    }
+                    
                 }
             }
         },
