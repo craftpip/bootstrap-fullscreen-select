@@ -14,7 +14,7 @@ if (typeof jQuery === 'undefined') {
 }
 
 (function ($) {
-    
+
     $.fn.mobileSelect = function (options) {
         var $this = $(this);
 
@@ -60,6 +60,15 @@ if (typeof jQuery === 'undefined') {
                     $.mobileSelect.elements[id].show();
                 });
             }
+			if(options === 'exists'){
+				// test for existance of mobileSelect 
+				var truthyVar = false;
+				$.each($.mobileSelect.elements, function(i,e){ 
+					if(e.$e[0] === $this[0]) 
+						truthyVar = true;
+				});
+				return truthyVar;
+			}
             return;
         }
         // if user defaults provided overwrite with mobileSelect defaults.
@@ -112,9 +121,9 @@ if (typeof jQuery === 'undefined') {
                 if (this.$e.attr('data-style') !== undefined) {
                     this.style = this.$e.attr('data-style');
                 }
-                
+
                 var b = this.$e.attr('disabled') || '';
-                this.$e.before('<button type="button" class="btn ' + this.style + ' btn-mobileSelect-gen" '+b+'><span class="text"></span> <span class="caret"></span></button>');
+                this.$e.before('<button type="button" class="btn ' + this.style + ' btn-mobileSelect-gen" ' + b + '><span class="text"></span> <span class="caret"></span></button>');
                 this.$triggerElement = this.$e.prev();
                 this.$e.hide();
             } else {
@@ -129,7 +138,7 @@ if (typeof jQuery === 'undefined') {
             this.$c = $('<div class="mobileSelect-container"></div>').addClass(this.theme).appendTo('body');
 
             //appending the container template
-            this.$c.html($.fn.mobileSelect.defaults.template);
+            this.$c.html((!this.filterable ? $.fn.mobileSelect.defaults.template : $.fn.mobileSelect.defaults.templateFilterable));
 
             //settings container animations.
             this.$c.children('div').css({
@@ -140,7 +149,10 @@ if (typeof jQuery === 'undefined') {
             /*
              * set title buttons text.
              */
-            this.$c.find('.mobileSelect-title').html(this.title).end().find('.mobileSelect-savebtn').html(this.buttonSave).end().find('.mobileSelect-clearbtn').html(this.buttonClear).end().find('.mobileSelect-cancelbtn').html(this.buttonCancel).end();
+            if(!this.filterable)
+                this.$c.find('.mobileSelect-title').html(this.title).end().find('.mobileSelect-selectallbtn').html(this.buttonSelectAll).end().find('.mobileSelect-savebtn').html(this.buttonSave).end().find('.mobileSelect-clearbtn').html(this.buttonClear).end().find('.mobileSelect-cancelbtn').html(this.buttonCancel).end();
+            else
+                this.$c.find('.mobileSelect-selectallbtn').html(this.buttonSelectAll).end().find('.mobileSelect-savebtn').html(this.buttonSave).end().find('.mobileSelect-clearbtn').html(this.buttonClear).end().find('.mobileSelect-cancelbtn').html(this.buttonCancel).end();
             this.$listcontainer = this.$c.find('.list-container');
             if (!this.isMultiple) {
                 this.$c.find('.mobileSelect-clearbtn').remove();
@@ -158,19 +170,23 @@ if (typeof jQuery === 'undefined') {
             var that = this;
             var prevGroup = '';
             $.each(this.options, function (i, a) {
-                
-                if(a.group && a.group !== prevGroup){
-                    if(a.groupDisabled){
+
+                if (a.group && a.group !== prevGroup) {
+                    if (a.groupDisabled) {
                         var b = 'disabled';
                     }
-                    that.$listcontainer.append('<span class="mobileSelect-group" '+b+'>'+a.group+'</span>');
+                    that.$listcontainer.append('<div><button class="btn-link" data-toggle="collapse" style="width: 100%" data-target="#group' + a.group + '"><span class="mobileSelect-group" ' + b + '>' + a.group + '</span></button><div id="group' + a.group + '" class="collapse in"></div></div>');
                     prevGroup = a.group;
                 }
-                if(a.groupDisabled || a.disabled){
+                if (a.groupDisabled || a.disabled) {
                     var b = 'disabled';
                 }
-                that.$listcontainer.append('<a href="#" class="mobileSelect-control" '+ b +' data-value="' + a.value + '">' + a.text + '</a>');
-                
+
+                if (a.group)
+                    that.$listcontainer.filter($('#group' + a.group).append('<a href="#" class="mobileSelect-control" ' + b + ' data-value="' + a.value + '">' + a.text + '</a>'))
+                else
+                    that.$listcontainer.append('<a href="#" class="mobileSelect-control" ' + b + ' data-value="' + a.value + '">' + a.text + '</a>');
+
             });
             this.sync();
             this._updateBtnCount();
@@ -180,41 +196,20 @@ if (typeof jQuery === 'undefined') {
             /*
              * Update generated button count.
              */
-            if (this.$triggerElement.is('button') && this.$triggerElement.hasClass('btn-mobileSelect-gen')) {
-                var a = this.$triggerElement.find('.text'),
-                    b = this.$triggerElement.next().find('option:selected').text() || this.$e.val(), 
-                    c = this.$e.attr('data-btntitle'),
-                    d = this.$e.attr('data-selected');
+            var d = this.$triggerElement.find(".text"), c = this.$e.val();
+            if (c === null) {
+                d.html("Nothing selected");
+                return false
+            }
 
-                if (b === null && c === undefined) {
-                    a.html("Nothing selected");
-                    return false;
-                }
-                if (b === null) {
-                    a.html(c);
-                    return false;
-                }
-
-
-                if (this.isMultiple) {
-                    if (b.length === 1) {
-                        a.html(b);
-                    } else {
-                        if(d === undefined){
-                            a.html(b.length + ' items selected');
-                        }else{
-                            a.html(b.length + ' ' + d);
-                        }
-                    }
+            if (this.isMultiple) {
+                if (c.length === 1) {
+                    d.html(c)
                 } else {
-
-                    if (c === undefined) {
-                        a.html(b);
-                    }else{
-                        a.html(c);
-                    }
-                    
+                    d.html(c.length + " items selected")
                 }
+            } else {
+                d.html(c)
             }
         },
         _bindEvents: function () {
@@ -226,27 +221,49 @@ if (typeof jQuery === 'undefined') {
                 e.preventDefault();
                 that.show();
             });
+            this.$c.find('.mobileSelect-selectallbtn').on('click', function (e) {
+                e.preventDefault();
+                that.$listcontainer.find($('.mobileSelect-control')).filter(':visible').addClass('selected')
+                that.syncR();
+                $(window).trigger('mobileSelectAll');
+            });
             this.$c.find('.mobileSelect-savebtn').on('click', function (e) {
                 e.preventDefault();
                 that.syncR();
                 that.hide();
+                $(window).trigger('mobileSelectSave');
             });
             this.$c.find('.mobileSelect-clearbtn').on('click', function (e) {
                 e.preventDefault();
                 that.$listcontainer.find('.selected').removeClass('selected');
                 that.syncR();
-                that.hide();
+                $(window).trigger('mobileSelectClear');
             });
             this.$c.find('.mobileSelect-cancelbtn').on('click', function (e) {
                 e.preventDefault();
                 that.hide();
+                $(window).trigger('mobileSelectCancel');
+            });
+            this.$c.find('.mobileSelect-filter').on('keyup', function (e) {
+                var string = $(this).val().toLowerCase()
+                if (string === "") {
+                    that.$listcontainer.find($('.mobileSelect-control')).show();
+
+                }
+                else {
+                    that.$listcontainer.find($('.mobileSelect-control')).hide();
+                    $.each(that.$listcontainer.find($('.mobileSelect-control')), function (i, item) {
+                        if ($(item).text().toLowerCase().indexOf(string) >= 0)
+                            $(item).show();
+                    });
+                }
             });
             this.$c.find('.mobileSelect-control').on('click', function (e) {
                 e.preventDefault();
                 var $this = $(this);
 
-                if($this.attr('disabled') == 'disabled')
-                	return false;
+                if ($this.attr('disabled') == 'disabled')
+                    return false;
 
                 if (that.isMultiple) {
                     $this.toggleClass('selected');
@@ -254,6 +271,7 @@ if (typeof jQuery === 'undefined') {
                     $this.siblings().removeClass('selected').end().addClass('selected');
                 }
             });
+           
         },
         _unbindEvents: function () {
 
@@ -360,17 +378,17 @@ if (typeof jQuery === 'undefined') {
             $.each(this.$e.find('option'), function (i, a) {
                 var $t = $(a);
                 if ($t.text()) {
-                    
-//                    var label = $t.parent().is('optgroup') ? $t.parent().attr('label') : false;
-                    
-                    if($t.parent().is('optgroup')){
+
+                    //                    var label = $t.parent().is('optgroup') ? $t.parent().attr('label') : false;
+
+                    if ($t.parent().is('optgroup')) {
                         var label = $t.parent().attr('label');
                         var labelDisabled = $t.parent().prop('disabled');
-                    }else{
+                    } else {
                         var label = false;
                         var labelDisabled = false;
                     }
-                    
+
                     options.push({
                         value: $t.val(),
                         text: $.trim($t.text()),
@@ -378,7 +396,7 @@ if (typeof jQuery === 'undefined') {
                         group: label,
                         groupDisabled: labelDisabled
                     });
-                    
+
                 }
             });
             this.options = options;
@@ -422,8 +440,10 @@ if (typeof jQuery === 'undefined') {
      * plugin defaults
      */
     $.fn.mobileSelect.defaults = {
-        template: '<div><div class="mobileSelect-title"></div><div class="list-container"></div><div class="mobileSelect-buttons"><a href="#" class="mobileSelect-savebtn"></a><a href="#" class="mobileSelect-clearbtn"></a><a href="#" class="mobileSelect-cancelbtn"></a></div></div>',
+        template: '<div><div class="mobileSelect-title"></div><div class="list-container"></div><div class="mobileSelect-buttons"><a href="#" class="mobileSelect-selectallbtn"></a><a href="#" class="mobileSelect-savebtn"></a><a href="#" class="mobileSelect-clearbtn"></a><a href="#" class="mobileSelect-cancelbtn"></a></div></div>',
+        templateFilterable:'<div><div class="mobileSelect-title"><div class="right-inner-addon"><i class="glyphicon glyphicon-search"></i><input class="form-control mobileSelect-filter" type="search" /></div></div><div class="list-container"></div><div class="mobileSelect-buttons"><a href="#" class="mobileSelect-selectallbtn"></a><a href="#" class="mobileSelect-savebtn"></a><a href="#" class="mobileSelect-clearbtn"></a><a href="#" class="mobileSelect-cancelbtn"></a></div></div>',
         title: 'Select an option',
+        buttonSelectAll: 'Select All Visible',
         buttonSave: 'Save',
         buttonClear: 'Clear',
         buttonCancel: 'Cancel',
@@ -440,6 +460,7 @@ if (typeof jQuery === 'undefined') {
         },
         onClose: function () {
         },
-        style: 'btn-default'
+        style: 'btn-default',
+        filterable: false
     };
 })(jQuery);
