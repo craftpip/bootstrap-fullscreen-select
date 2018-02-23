@@ -288,6 +288,7 @@ if (typeof jQuery === 'undefined') {
                 selectedOptions.push($(this).data('value'));
             });
             this.$e.val(selectedOptions);
+            this.$e.trigger("change");
         },
         hide: function () {
 
